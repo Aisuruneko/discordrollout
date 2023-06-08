@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686202839,
+		"lastUpdated": 1686214298,
 		"createdAt": 1686202839
 	},
 
@@ -75,7 +75,7 @@
 				" -> Try cold restarting Discord",
 				" -> Make sure you're up-to-date with the Discord client you're using.",
 				" -> As the rollout seems to be gradually rolling out, you can try waiting up to 24-48 hours.",
-				"If you've tried everything and still cannot get this blasted thing, you can try reaching out to Discord: <a href=\"https://dis.gd/contact\">https://dis.gd/contact</a>",
+				"<s>If you've tried everything and still cannot get this blasted thing, you can try reaching out to Discord: <a href=\"https://dis.gd/contact\">https://dis.gd/contact</a>.</s> This seems to be not possible if you are able to claim but it won't work...",
 				"There's not much you can do at this time otherwise..."
 			]
 		},
