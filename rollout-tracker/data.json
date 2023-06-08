@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686214298,
+		"lastUpdated": 1686215180,
 		"createdAt": 1686202839
 	},
 
@@ -116,9 +116,11 @@
 		{
 			"note": "1",
 			"content": [
-				"Discord will only consider you a \"Nitro User\" as long as you had Nitro before March 1st, 2023 AND continue to keep it until you receive the change.",
-				"It seems that if you get your Nitro back within the grace period (typically around 3 days), you should be able to fall into the \"Nitro User\" category.",
-				"Lastly, you will only fall into the \"Nitro User\" category if all applies AND your Nitro is NOT Nitro Basic (Nitro Classic will be honored, if you're wondering)."
+				"Discord will only consider you a \"Nitro User\" as long as all of the following are true:",
+				" &nbsp;&nbsp;&nbsp;-> You had Nitro on or before March 1st, 2023 AND continue to keep it until you receive the change (this applies for both gifted and purchased).",
+				" &nbsp;&nbsp;&nbsp;-> You got your Nitro back within the grace period (typically around 3 days), if you had lost it.",
+				" &nbsp;&nbsp;&nbsp;-> Your Nitro is NOT Nitro Basic (Nitro Classic will be honored, if you're wondering).",
+				" &nbsp;&nbsp;&nbsp;-> You do not have a Nitro Trial, as those were in May."
 			]
 		}
 	]
