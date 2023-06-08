@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686215180,
+		"lastUpdated": 1686247862,
 		"createdAt": 1686202839
 	},
 
@@ -13,8 +13,8 @@
 
 	"status": {
 		"confirmed": {
-			"nitro": "November 2017",
-			"nonnitro": "January 2016"
+			"nitro": "January 2019",
+			"nonnitro": "March 2016"
 		}
 	},
 
@@ -54,7 +54,12 @@
 		{
 			"type": "pending",
 			"header": "Rollout 4",
-			"content": "Waiting for this to happen! This should be by <c-timestamp unix=\"1686247200\">...</c-timestamp>!"
+			"content": [
+				"Begun at <c-timestamp unix=\"1686247050\">...</c-timestamp> jumping massively to <b>December 2018</b> (Nitro).",
+				"At <c-timestamp unix=\"1686247341\">...</c-timestamp>, there was multiple confirmed reports of up to <b>Feburary 2016</b> (Non-Nitro).",
+				"At <c-timestamp unix=\"1686247566\">...</c-timestamp>, there was multiple confirmed reports of up to <b>January 2019</b> (Nitro) and <b>March 2016</b> (Non-Nitro).",
+				"Not completed yet!"
+			]
 		}
 	],
 
@@ -75,8 +80,7 @@
 				" -> Try cold restarting Discord",
 				" -> Make sure you're up-to-date with the Discord client you're using.",
 				" -> As the rollout seems to be gradually rolling out, you can try waiting up to 24-48 hours.",
-				"<s>If you've tried everything and still cannot get this blasted thing, you can try reaching out to Discord: <a href=\"https://dis.gd/contact\">https://dis.gd/contact</a>.</s> This seems to be not possible if you are able to claim but it won't work...",
-				"There's not much you can do at this time otherwise..."
+				"Discord seems to be aware of the issue, however their general support won't be able to help. There's not much you can do at this time otherwise..."
 			]
 		},
 		{
