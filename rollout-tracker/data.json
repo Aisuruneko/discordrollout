@@ -1,0 +1,125 @@
+{
+	"meta": {
+		"lastUpdated": 1686202839,
+		"createdAt": 1686202839
+	},
+
+	"footer": {
+		"content": [
+			"This is for informational purposes only, and does not represent the views of nor is affiliated with Discord Inc., nor any of its staff.",
+			"Made with &lt;3 by @<a href=\"https://discord.com/users/222073294419918848\">thecodingguy</a>"
+		]
+	},
+
+	"status": {
+		"confirmed": {
+			"nitro": "November 2017",
+			"nonnitro": "January 2016"
+		}
+	},
+
+	"timeline": [
+		{
+			"type": "confirmed",
+			"header": "Rollout 0",
+			"content": "This was for Discord Staff (and their personal accounts), Partners, Verified Server Owners, and some server owners with a certain threshold revenue. There is not much information for begun or completed times."
+		},
+		{
+			"type": "confirmed",
+			"header": "Rollout 1",
+			"content": [
+				"Begun at <c-timestamp unix=\"1685988081\">...</c-timestamp> with <b>May 2015</b>.",
+				"Completed at <c-timestamp unix=\"1686047367\">...</c-timestamp> with <b>February 2016</b> (Nitro) and <b>August 2015</b> (Non-Nitro)."
+			]
+		},
+		{
+			"type": "confirmed",
+			"header": "Rollout 2",
+			"content": [
+				"Begun at <c-timestamp unix=\"1686083468\">...</c-timestamp> with <b>March 2016</b> (Nitro) and <b>September 2015</b> (Non-Nitro).",
+				"Completed at <c-timestamp unix=\"1686095953\">...</c-timestamp> with <b>October 2016</b> (Nitro) and <b>October 2015</b> (Non-Nitro)."
+			]
+		},
+		{
+			"type": "confirmed",
+			"header": "Rollout 3",
+			"content": [
+				"Begun at <c-timestamp unix=\"1686159689\">...</c-timestamp> with <b>January 2017</b> (Nitro) and <b>November 2015</b> (Non-Nitro).",
+				"At <c-timestamp unix=\"1686160852\">...</c-timestamp>, there was multiple confirmed reports of <b>February 2017</b> (Nitro).",
+				"At <c-timestamp unix=\"1686176873\">...</c-timestamp>, there was multiple confirmed reports of up to <b>November 2017</b> (Nitro) and <b>December 2015</b> (Non-Nitro).",
+				"At <c-timestamp unix=\"1686178893\">...</c-timestamp>, there was multiple confirmed reports of up to <b>January 2016</b> (Non-Nitro).",
+				"Completed at <c-timestamp unix=\"1686180577\">...</c-timestamp> with <b>November 2017</b> (Nitro) and <b>January 2016</b> (Non-Nitro)."
+			]
+		},
+		{
+			"type": "pending",
+			"header": "Rollout 4",
+			"content": "Waiting for this to happen! This should be by <c-timestamp unix=\"1686247200\">...</c-timestamp>!"
+		}
+	],
+
+	"faq": [
+		{
+			"header": "When will I get my username?",
+			"content": [
+				"There is no official timeline. This is to only provide a overview of what is going on currently.",
+				"Confirmed as of <c-timestamp unix=\"1686163919\">...</c-timestamp>, they seem to be in two waves: one at or before 2:00 PM Eastern Time (GMT-4) and another at or before 8:00 PM Eastern Time (GMT-4)."
+			]
+		},
+		{
+			"header": "I'm in the correct category and timeframe and should have the \"rollout\", but I don't?!",
+			"content": [
+				"<b>Don't be alarmed! It seems a lot of people are experiencing this issue!</b>",
+				"No one really knows the root cause of it, however here are some tips:",
+				" -> Try logging out and logging back in",
+				" -> Try cold restarting Discord",
+				" -> Make sure you're up-to-date with the Discord client you're using.",
+				" -> As the rollout seems to be gradually rolling out, you can try waiting up to 24-48 hours.",
+				"If you've tried everything and still cannot get this blasted thing, you can try reaching out to Discord: <a href=\"https://dis.gd/contact\">https://dis.gd/contact</a>",
+				"There's not much you can do at this time otherwise..."
+			]
+		},
+		{
+			"header": "There are users who have it way after the date you list!",
+			"content": [
+				"It may be possible, if one of the two conditions applies:",
+				" -> The user was apart of Rollout 0, which rolled the new system out for Discord Staff (and their personal accounts), Partners, Verified Server Owners, and some server owners with a certain threshold revenue.",
+				" -> The information provided here is somehow out of date. <i>To avoid misinformation as much as possible, it may take a bit to update this page.</i>"
+			]
+		},
+		{
+			"header": "How do I learn more about this change?",
+			"content": "<a href=\"https://dis.gd/usernames\">https://dis.gd/usernames</a>"
+		},
+		{
+			"header": "I want to report an issue / report a update / talk to you / etc...",
+			"content": "You can reach out to me via Discord at @<a href=\"https://discord.com/users/222073294419918848\">thecodingguy</a>."
+		},
+		{
+			"header": "How often does this page update?",
+			"content": "The page reloads every 5 minutes (to save bandwidth, as well). This page will be updated carefully to avoid misinformation as much as possible."
+		},
+		{
+			"header": "What are the times?!",
+			"content": "Unless it shows up with something like (GMT-4), it's in your local timezone."
+		},
+		{
+			"header": "Is this official?",
+			"content": [
+				"Short answer: No, but it is as much as we have, as a community.",
+				"Long answer: No, this is not in any way, shape, or form an official tracker. The content maybe inaccurate (although at its best, I try to keep it accurate!). Because it is a community effort, the data collected to present on this page varies for sources, but mainly from the Discord Admins server."
+			]
+		}
+	],
+
+	"footnotes": [
+		{
+			"note": "1",
+			"content": [
+				"Discord will only consider you a \"Nitro User\" as long as you had Nitro before March 1st, 2023 AND continue to keep it until you receive the change.",
+				"It seems that if you get your Nitro back within the grace period (typically around 3 days), you should be able to fall into the \"Nitro User\" category.",
+				"Lastly, you will only fall into the \"Nitro User\" category if all applies AND your Nitro is NOT Nitro Basic (Nitro Classic will be honored, if you're wondering)."
+			]
+		}
+	]
+}
