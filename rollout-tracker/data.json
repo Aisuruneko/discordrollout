@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686247862,
+		"lastUpdated": 1686260430,
 		"createdAt": 1686202839
 	},
 
@@ -56,9 +56,9 @@
 			"header": "Rollout 4",
 			"content": [
 				"Begun at <c-timestamp unix=\"1686247050\">...</c-timestamp> jumping massively to <b>December 2018</b> (Nitro).",
-				"At <c-timestamp unix=\"1686247341\">...</c-timestamp>, there was multiple confirmed reports of up to <b>Feburary 2016</b> (Non-Nitro).",
+				"At <c-timestamp unix=\"1686247341\">...</c-timestamp>, there was multiple confirmed reports of up to <b>February 2016</b> (Non-Nitro).",
 				"At <c-timestamp unix=\"1686247566\">...</c-timestamp>, there was multiple confirmed reports of up to <b>January 2019</b> (Nitro) and <b>March 2016</b> (Non-Nitro).",
-				"Not completed yet!"
+				"Not completed yet, next rollout should be by <c-timestamp unix=\"1686268800\">...</c-timestamp>"
 			]
 		}
 	],
@@ -79,8 +79,9 @@
 				" -> Try logging out and logging back in",
 				" -> Try cold restarting Discord",
 				" -> Make sure you're up-to-date with the Discord client you're using.",
+				" -> Try another device / client",
 				" -> As the rollout seems to be gradually rolling out, you can try waiting up to 24-48 hours.",
-				"Discord seems to be aware of the issue, however their general support won't be able to help. There's not much you can do at this time otherwise..."
+				"Discord is aware of the issue and their general support won't be able to help. There's not much you can do at this time otherwise..."
 			]
 		},
 		{
