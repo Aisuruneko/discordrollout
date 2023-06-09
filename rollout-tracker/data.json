@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686269424,
+		"lastUpdated": 1686332861,
 		"createdAt": 1686202839
 	},
 
@@ -14,8 +14,8 @@
 
 	"status": {
 		"confirmed": {
-			"nitro": "June 2020",
-			"nonnitro": "July 2016"
+			"nitro": "February 2022",
+			"nonnitro": "October 2016"
 		}
 	},
 
@@ -74,7 +74,7 @@
 			"type": "pending",
 			"header": "Day 5",
 			"content": [
-				"[<c-timestamp unix=\"1686333600\">...</c-timestamp>] Wave #1 may begin around this time.",
+				"[<c-timestamp unix=\"1686331320\">...</c-timestamp>] Wave #1 begun with <b>February 2022</b> (Nitro) and <b>October 2016</b> (Non-Nitro).",
 
 				"[<c-timestamp unix=\"1686353400\">...</c-timestamp>] Wave #2 may begin around this time."
 			]

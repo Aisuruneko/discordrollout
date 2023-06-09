@@ -8,7 +8,7 @@
 		{
 			"id": "nitro-bugs",
 			"icon": "<span class=\"badge pending\">ALERT</span>",
-			"text": "There is a bug affecting some Nitro users being labeled as Non-Nitro Users; Discord is aware."
+			"text": "There is a bug affecting some Nitro users being labeled as Non-Nitro Users; Discord is NOT aware - please report: <a href=\"https://dis.gd/contact\">https://dis.gd/contact</a>."
 		}
 	]
 }
