@@ -333,6 +333,10 @@ class RolloutTracker {
 					);
 					alert("Sorry, something went wrong while loading data. Try refreshing?");
 				});
+			
+			setTimeout(() => {
+				window.location.reload();
+			}, ((60 * 1000) * 5));
 		} catch (Ex) {
 			console.error(
 				`==== ERROR ====` + "\n" +
