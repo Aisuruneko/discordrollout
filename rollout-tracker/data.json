@@ -111,8 +111,11 @@
 			]
 		},
 		{
-			"header": "How do I learn more about this change?",
-			"content": "<a href=\"https://dis.gd/usernames\">https://dis.gd/usernames</a>"
+			"header": "How do I learn more about this change / is there another way of tracking?",
+			"content": [
+				"To learn more, you can visit the official Discord support page: <a href=\"https://dis.gd/usernames\">https://dis.gd/usernames</a>.",
+				"I also suggest checking out <a href=\"https://arewepomeloyet.com\">hampuskraft's tracker</a> where you can view anonymized user-submitted data to get an overview of where it's heading next! (Also, there's a neat graph too!)"
+			]
 		},
 		{
 			"header": "How often does this page update?",
