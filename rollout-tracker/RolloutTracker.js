@@ -10,7 +10,7 @@ class RolloutTracker {
 		// Main
 		this.version = "v2023.06.09";
 		this.assets = {
-			base: "https://nekos.sh/beta/rollout-tracker/",
+			base: "https://nekos.sh/rollout-tracker/",
 			data: "data.json",
 			alerts: "alerts.json"
 		};
