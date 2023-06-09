@@ -8,15 +8,17 @@
 class RolloutTracker {
 	constructor() {
 		// Main
-		this.version = "v2023.06.08";
+		this.version = "v2023.06.09";
 		this.assets = {
-			base: "https://nekos.sh/rollout-tracker/",
-			data: "data.json"
+			base: "https://nekos.sh/beta/rollout-tracker/",
+			data: "data.json",
+			alerts: "alerts.json"
 		};
 		this.elements = {};
 		this.maintainer = {
 			handle: "thecodingguy",
-			platform: "DISCORD"
+			platform: "DISCORD",
+			url: "https://discord.com/users/222073294419918848"
 		}
 	}
 
@@ -26,7 +28,8 @@ class RolloutTracker {
 			// Handle Theme
 			this.themeInit();
 
-			// Get the site loaders
+			// Get the site elements
+			this.elements.alerts = document.getElementsByClassName("alerts")[0];
 			this.elements.loaders = document.getElementsByClassName("loader");
 			this.elements.sections = document.getElementsByTagName("section");
 			this.elements.footer = document.getElementsByTagName("footer")[0];
@@ -48,6 +51,52 @@ class RolloutTracker {
 			};
 
 			// Fetch the data
+			const alertsUrl = `${this.assets.base}${this.assets.alerts}`;
+			fetch(alertsUrl)
+				.then(response => {
+					if (!response.ok) throw new Error(response.status);
+					else return response.json();
+				})
+				.then(data => {
+					if (!data) throw new Error("Data missing");
+					// We got the alerts!
+
+					if (data.alerts && (data.alerts.length ? data.alerts.length > 0 : false)) {
+						const alertsContainer = this.elements.alerts;
+
+						for (let i = 0; i < data.alerts.length; i++) {
+							if (!data.alerts[i].id || !data.alerts[i].icon || !data.alerts[i].text) continue;
+							const alertContainer = document.createElement("div");
+
+
+							const alertIconElement = document.createElement("span");
+							alertIconElement.className = "alert-icon";
+							alertIconElement.innerHTML = data.alerts[i].icon;
+							const alertTextElement = document.createElement("span");
+							alertTextElement.className = "alert-text";
+							alertTextElement.innerHTML = data.alerts[i].text;
+
+							alertContainer.appendChild(alertIconElement);
+							alertContainer.appendChild(alertTextElement);
+
+
+							alertsContainer.appendChild(alertContainer);
+						};
+					};
+				})
+				.catch(error => {
+					// We don't got the alerts...
+					console.error(
+						`==== ERROR ====` + "\n" +
+						`PLEASE REPORT TO ${this.maintainer.handle} ON ${this.maintainer.platform}` + "\n" +
+						`Generated: ${new Date().getTime()}` + "\n" +
+						`Error: ${error}` + "\n" +
+						error.stack +
+						`==== ERROR ====`
+					);
+				});
+
+			// Fetch the data
 			const dataUrl = `${this.assets.base}${this.assets.data}`;
 			fetch(dataUrl)
 				.then(response => {
@@ -62,20 +111,15 @@ class RolloutTracker {
 					const footerSection = this.elements.footer;
 					const footerpElement = document.createElement("p");
 					if (data.footer) {
-						footerpElement.innerHTML = (typeof data.footer.content === "object") ? data.footer.content.join("<br>") : data.footer.content;
+						let footerpContent = (typeof data.footer.content === "object") ? data.footer.content.join("<br>") : data.footer.content;
+						footerpElement.innerHTML = footerpContent
+							.replaceAll("%MAINTAINER_URL%", this.maintainer.url)
+							.replaceAll("%MAINTAINER_HANDLE%", this.maintainer.handle)
+							.replaceAll("%MAINTAINER_PLATFORM%", this.maintainer.platform)
+							.replaceAll("%SITE_VERSION%", this.version)
+							.replaceAll("%DATA_LAST_UPDATED%", data.meta.lastUpdated);
 						footerpElement.appendChild(document.createElement("br"))
 					};
-
-					const footerversionElement = document.createElement("span");
-					footerversionElement.id = "version";
-					footerversionElement.innerHTML = this.version;
-					const footerlastUpdatedElement = document.createElement("span");
-					footerlastUpdatedElement.id = "lastUpdated";
-					footerlastUpdatedElement.innerHTML = `<c-timestamp unix=${data.meta.lastUpdated}>...</c-timestamp>`;
-
-					footerpElement.appendChild(footerversionElement);
-					footerpElement.appendChild(document.createTextNode(" | Updated: "));
-					footerpElement.appendChild(footerlastUpdatedElement);
 
 					footerSection.appendChild(footerpElement);
 
@@ -155,6 +199,7 @@ class RolloutTracker {
 						// Handle adding data
 						if (data.timeline && (data.timeline ? data.timeline.length > 0 : false)) {
 							const ulElement = document.createElement("ul");
+							ulElement.id = "timeline-list";
 
 							for (let i = 0; i < data.timeline.length; i++) {
 								if (!data.timeline[i].type || !data.timeline[i].header || !data.timeline[i].content) continue;
@@ -163,25 +208,29 @@ class RolloutTracker {
 								const liElement = document.createElement("li");
 
 								// Header part
-								const h3Element = document.createElement("h3");
+								const containerElement = document.createElement("div");
 								const badge = document.createElement("span");
+								const h3Element = document.createElement("h3");
+								containerElement.className = "header";
 								badge.className = `badge ${data.timeline[i].type}`;
 								badge.textContent = data.timeline[i].type.toUpperCase();
 								const rolloutText = document.createTextNode(` ${data.timeline[i].header}`);
-
-								h3Element.appendChild(badge);
 								h3Element.appendChild(rolloutText);
+
+								containerElement.appendChild(badge);
+								containerElement.appendChild(h3Element);
 
 								// Content
 								const pElement = document.createElement("p");
 								pElement.innerHTML = (typeof data.timeline[i].content === "object") ? data.timeline[i].content.join("<br>") : data.timeline[i].content;
 
-								liElement.appendChild(h3Element);
+								liElement.appendChild(containerElement);
 								liElement.appendChild(pElement);
 								ulElement.appendChild(liElement);
 							};
 
 							timelineSection.appendChild(ulElement);
+							this.sortInit();
 						} else {
 							timelineSection.appendChild(document.createTextNode(`There is no timeline.`));
 						};
@@ -212,8 +261,12 @@ class RolloutTracker {
 
 								// Content
 								const pElement = document.createElement("p");
+								let pContent = (typeof data.faq[i].content === "object") ? data.faq[i].content.join("<br>") : data.faq[i].content;
 								pElement.style = "font-size: 90%;";
-								pElement.innerHTML = (typeof data.faq[i].content === "object") ? data.faq[i].content.join("<br>") : data.faq[i].content;
+								pElement.innerHTML = pContent
+									.replaceAll("%MAINTAINER_URL%", this.maintainer.url)
+									.replaceAll("%MAINTAINER_HANDLE%", this.maintainer.handle)
+									.replaceAll("%MAINTAINER_PLATFORM%", this.maintainer.platform);
 
 								faqItemElement.appendChild(h4Element);
 								faqItemElement.appendChild(pElement);
@@ -311,9 +364,57 @@ class RolloutTracker {
 
 		return ((usrPreference) ? (updateTheme((usrPreference === "dark"))) : (updateTheme((sysPreference === "dark"))));
 	}
+
+	sortInit() {
+		const timelineList = document.getElementById("timeline-list");
+		const timelineHeader = document.getElementById("timeline-header");
+
+		const sortToggle = document.createElement("button");
+		sortToggle.id = "sortToggle";
+		sortToggle.className = "button gradient1";
+		sortToggle.innerHTML = "Sort by Newest";
+		timelineHeader.appendChild(sortToggle);
+
+		const updateSort = (forceMode) => {
+			const timelineItems = Array.from(timelineList.getElementsByTagName("li"));
+
+			const ascending = (!forceMode ? (timelineList.getAttribute("data-sort-order") === "asc") : (forceMode === "asc"));
+
+			timelineList.setAttribute("data-sort-order", (ascending ? "desc" : "asc"));
+
+			// Sorting time!
+			timelineItems.sort(function (a, b) {
+				const textA = a.querySelector("h3").textContent;
+				const textB = b.querySelector("h3").textContent;
+
+				const numberA = parseInt(textA.match(/\d+/)[0]);
+				const numberB = parseInt(textB.match(/\d+/)[0]);
+
+				return ((ascending) ? (numberA - numberB) : (numberB - numberA));
+			});
+
+			// Reorder the list items
+			timelineItems.forEach(function (li) {
+				timelineList.appendChild(li);
+			});
+
+			// Update toggle button
+			sortToggle.className = `button gradient${ascending ? "1" : "2"}`;
+			sortToggle.innerText = `Sort by ${ascending ? "Newest" : "Oldest"}`;
+
+			if (!forceMode) localStorage.setItem("sortingTimelineMethod", (ascending ? "asc" : "desc"));
+		};
+
+		// Toggle
+		sortToggle.addEventListener("click", function() {
+			return updateSort();
+		});
+
+		const usrPreference = localStorage.getItem("sortingTimelineMethod");
+
+		return usrPreference ? updateSort(usrPreference) : null;
+	}
 }
-
-
 
 
 class CustomTimestamp extends HTMLElement {
@@ -321,7 +422,7 @@ class CustomTimestamp extends HTMLElement {
 		super();
 		this.unixTimestamp = parseInt(this.getAttribute('unix'));
 		this.tooltip = document.createElement('div');
-		this.tooltipVisible = false; // Track the visibility of the tooltip
+		this.tooltipVisible = false;
 
 		this.handleMouseEnter = this.handleMouseEnter.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
@@ -359,14 +460,14 @@ class CustomTimestamp extends HTMLElement {
 			this.tooltip.addEventListener('mouseleave', this.handleMouseLeave);
 			this.addEventListener('mouseleave', this.handleMouseLeave);
 
-			this.tooltipVisible = true; // Set tooltip visibility to true
+			this.tooltipVisible = true;
 		};
 	}
 
 	handleMouseLeave() {
 		if (this.tooltipVisible) {
 			document.body.removeChild(this.tooltip);
-			this.tooltipVisible = false; // Set tooltip visibility to false
+			this.tooltipVisible = false;
 		};
 	}
 };

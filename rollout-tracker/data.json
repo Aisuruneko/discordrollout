@@ -7,7 +7,8 @@
 	"footer": {
 		"content": [
 			"This is for informational purposes only, and does not represent the views of nor is affiliated with Discord Inc., nor any of its staff.",
-			"Made with &lt;3 by @<a href=\"https://discord.com/users/222073294419918848\">thecodingguy</a>"
+			"Made with &lt;3 by @<a href=\"%MAINTAINER_URL%\">%MAINTAINER_HANDLE%</a>.",
+			"%SITE_VERSION% | Data Updated: <c-timestamp unix=%DATA_LAST_UPDATED%>...</c-timestamp>"
 		]
 	},
 
@@ -22,52 +23,60 @@
 		{
 			"type": "confirmed",
 			"header": "Rollout 0",
-			"content": "This was for Discord Staff (and their personal accounts), Partners, Verified Server Owners, and some server owners with a certain threshold revenue. There is not much information for begun or completed times."
+			"content": [
+				"<i>NOTE: This was for Discord Staff (and their personal accounts), Partners, Verified Server Owners, and some server owners with a certain revenue threshold.</i>",
+				"There is not much information for begun or completed times. It is believed that around approximately:",
+				" -> <c-timestamp unix=\"1684269420\">...</c-timestamp> - Discord Staff and their personal staff got the rollout.",
+				" -> <c-timestamp unix=\"1684438920\">...</c-timestamp> - Partners, Verified Server Owners, and the some server owners got the rollout."
+			]
 		},
 		{
 			"type": "confirmed",
 			"header": "Rollout 1",
 			"content": [
-				"Begun at <c-timestamp unix=\"1685988081\">...</c-timestamp> with <b>May 2015</b>.",
-				"Completed at <c-timestamp unix=\"1686047367\">...</c-timestamp> with <b>February 2016</b> (Nitro) and <b>August 2015</b> (Non-Nitro)."
+				"[<c-timestamp unix=\"1685988081\">...</c-timestamp>] Rollout begun with <b>February 2015</b>.",
+				"[<c-timestamp unix=\"1686047367\">...</c-timestamp>] Rollout was considered completed with <b>February 2016</b> (Nitro) and <b>August 2015</b> (Non-Nitro)."
 			]
 		},
 		{
 			"type": "confirmed",
 			"header": "Rollout 2",
 			"content": [
-				"Begun at <c-timestamp unix=\"1686083468\">...</c-timestamp> with <b>March 2016</b> (Nitro) and <b>September 2015</b> (Non-Nitro).",
-				"Completed at <c-timestamp unix=\"1686095953\">...</c-timestamp> with <b>October 2016</b> (Nitro) and <b>October 2015</b> (Non-Nitro)."
+				"[<c-timestamp unix=\"1686083468\">...</c-timestamp>] Rollout begun with <b>March 2016</b> (Nitro) and <b>September 2015</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686095953\">...</c-timestamp>] Rollout was considered completed with <b>October 2016</b> (Nitro) and <b>October 2015</b> (Non-Nitro)."
 			]
 		},
 		{
 			"type": "confirmed",
 			"header": "Rollout 3",
 			"content": [
-				"Begun at <c-timestamp unix=\"1686159689\">...</c-timestamp> with <b>January 2017</b> (Nitro) and <b>November 2015</b> (Non-Nitro).",
-				"At <c-timestamp unix=\"1686160852\">...</c-timestamp>, there was multiple confirmed reports of <b>February 2017</b> (Nitro).",
-				"At <c-timestamp unix=\"1686176873\">...</c-timestamp>, there was multiple confirmed reports of up to <b>November 2017</b> (Nitro) and <b>December 2015</b> (Non-Nitro).",
-				"At <c-timestamp unix=\"1686178893\">...</c-timestamp>, there was multiple confirmed reports of up to <b>January 2016</b> (Non-Nitro).",
-				"Completed at <c-timestamp unix=\"1686180577\">...</c-timestamp> with <b>November 2017</b> (Nitro) and <b>January 2016</b> (Non-Nitro)."
+				"[<c-timestamp unix=\"1686159689\">...</c-timestamp>] Wave #1 begun with <b>January 2017</b> (Nitro) and <b>November 2015</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686160852\">...</c-timestamp>] Wave #1 ended off with multiple confirmed reports of up to <b>February 2017</b> (Nitro).",
+
+				"[<c-timestamp unix=\"1686176873\">...</c-timestamp>] Wave #2 begun with multiple confirmed reports of up to <b>November 2017</b> (Nitro) and <b>December 2015</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686178893\">...</c-timestamp>] Wave #2 had multiple confirmed reports of up to <b>January 2016</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686180577\">...</c-timestamp>] Wave #2 ended off with <b>November 2017</b> (Nitro) and <b>January 2016</b> (Non-Nitro)."
 			]
 		},
 		{
 			"type": "confirmed",
 			"header": "Rollout 4",
 			"content": [
-				"Begun at <c-timestamp unix=\"1686247050\">...</c-timestamp> jumping massively to <b>December 2018</b> (Nitro).",
-				"At <c-timestamp unix=\"1686247341\">...</c-timestamp>, there was multiple confirmed reports of up to <b>February 2016</b> (Non-Nitro).",
-				"At <c-timestamp unix=\"1686247566\">...</c-timestamp>, there was multiple confirmed reports of up to <b>January 2019</b> (Nitro) and <b>March 2016</b> (Non-Nitro).",
-				"At <c-timestamp unix=\"1686263764\">...</c-timestamp>, wave 2 rolled out with multiple confirmed reports of up to <b>June 2020</b> (Nitro) and <b>July 2016</b> (Non-Nitro).",
-				"Completed by <c-timestamp unix=\"1686268800\">...</c-timestamp> up to <b>June 2020</b> (Nitro) and <b>July 2016</b> (Non-Nitro)."
+				"[<c-timestamp unix=\"1686247050\">...</c-timestamp>] Wave #1 begun with a massive jump to <b>December 2018</b> (Nitro).",
+				"[<c-timestamp unix=\"1686247341\">...</c-timestamp>] Wave #1 had multiple confirmed reports of up to <b>February 2016</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686247566\">...</c-timestamp>] Wave #1 ended of with multiple confirmed reports of up to <b>January 2019</b> (Nitro) and <b>March 2016</b> (Non-Nitro).",
+
+				"[<c-timestamp unix=\"1686263764\">...</c-timestamp>] Wave #2 begun and ended with multiple confirmed reports of up to <b>June 2020</b> (Nitro) and <b>July 2016</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686268800\">...</c-timestamp>] Wave #2 ended off with <b>June 2020</b> (Nitro) and <b>July 2016</b> (Non-Nitro)."
 			]
 		},
 		{
 			"type": "pending",
 			"header": "Rollout 5",
 			"content": [
-				"Wave #1 - Pending",
-				"Wave #2 - Pending"
+				"[<c-timestamp unix=\"1686333600\">...</c-timestamp>] Wave #1 may begin around this time.",
+
+				"[<c-timestamp unix=\"1686353400\">...</c-timestamp>] Wave #2 may begin around this time."
 			]
 		}
 	],
@@ -97,17 +106,13 @@
 			"header": "There are users who have it way after the date you list!",
 			"content": [
 				"It may be possible, if one of the two conditions applies:",
-				" -> The user was apart of Rollout 0, which rolled the new system out for Discord Staff (and their personal accounts), Partners, Verified Server Owners, and some server owners with a certain threshold revenue.",
+				" -> The user was apart of Rollout 0, which rolled the new system out for Discord Staff (and their personal accounts), Partners, Verified Server Owners, and some server owners with a certain revenue threshold.",
 				" -> The information provided here is somehow out of date. <i>To avoid misinformation as much as possible, it may take a bit to update this page.</i>"
 			]
 		},
 		{
 			"header": "How do I learn more about this change?",
 			"content": "<a href=\"https://dis.gd/usernames\">https://dis.gd/usernames</a>"
-		},
-		{
-			"header": "I want to report an issue / report a update / talk to you / etc...",
-			"content": "You can reach out to me via Discord at @<a href=\"https://discord.com/users/222073294419918848\">thecodingguy</a>."
 		},
 		{
 			"header": "How often does this page update?",
@@ -123,6 +128,10 @@
 				"Short answer: No, but it is as much as we have, as a community.",
 				"Long answer: No, this is not in any way, shape, or form an official tracker. The content maybe inaccurate (although at its best, I try to keep it accurate!). Because it is a community effort, the data collected to present on this page varies for sources, but mainly from the Discord Admins server."
 			]
+		},
+		{
+			"header": "I want to report an issue / report a update / talk to you / etc...",
+			"content": "You can reach out to me via Discord at @<a href=\"%MAINTAINER_URL%\">%MAINTAINER_HANDLE%</a>."
 		}
 	],
 

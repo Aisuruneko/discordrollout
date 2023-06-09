@@ -1,0 +1,14 @@
+{
+	"meta": {
+		"lastUpdated": 1686292713,
+		"createdAt": 1686290199
+	},
+
+	"alerts": [
+		{
+			"id": "nitro-bugs",
+			"icon": "<span class=\"badge pending\">ALERT</span>",
+			"text": "There is a bug affecting some Nitro users being labeled as Non-Nitro Users; Discord is aware."
+		}
+	]
+}

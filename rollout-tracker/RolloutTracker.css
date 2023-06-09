@@ -41,7 +41,7 @@ a:hover {
 
 .alert-icon {
 	font-size: 18px;
-	margin-right: 5px;
+	margin-right: .5em;
 }
 
 .alert-text {
@@ -155,16 +155,16 @@ ul {
 	list-style: none;
 }
 
-.timeline li {
+.timeline ul li {
 	position: relative;
 	padding-left: 20px;
 	margin-bottom: 20px;
 }
 
-.timeline li:before {
+.timeline ul li:before {
 	content: '';
 	position: absolute;
-	top: 9px;
+	top: 0.5em;
 	left: 0;
 	width: 10px;
 	height: 10px;
@@ -172,9 +172,27 @@ ul {
 	background-color: #00ff00;
 }
 
+.timeline ul li div.header * {
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: 0;
+}
+
+.timeline ul li div.header *:not(:last-child) {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.5em;
+}
+
+.timeline ul li div.header {
+	margin-bottom: 0.5em;
+}
+
+
 .timeline h4 {
 	margin-bottom: 5px;
 }
+
 
 .faq {
 	margin-top: 40px;
@@ -208,19 +226,42 @@ footer {
 	text-transform: uppercase;
 }
 
-.confirmed {
+.badge.confirmed {
 	background-color: #50a957;
 	color: #fff;
 }
 
-.unconfirmed {
+.badge.unconfirmed {
 	background-color: #c0392b;
 	color: #fff;
 }
 
-.pending {
+.badge.pending {
 	background-color: #f1c40f;
 	color: #333;
+}
+
+.button {
+	display: inline-block;
+	padding: 5px 10px;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: none;
+	cursor: pointer;
+}
+
+.button.gradient1 {
+	background: linear-gradient(to right, #FFC371, #FF5F6D);
+}
+
+.button.gradient2 {
+	background: linear-gradient(to right, #2193b0, #6dd5ed);
+}
+
+.button.gradient3 {
+	background: linear-gradient(to right, #36D1DC, #5B86E5);
 }
 
 .timestamp {
@@ -306,15 +347,15 @@ body.dark .button {
 	color: #fff;
 }
 
-body.dark .confirmed {
+body.dark .badge.confirmed {
 	background: linear-gradient(to right, #50a957, #389436);
 }
 
-body.dark .unconfirmed {
+body.dark .badge.unconfirmed {
 	background: linear-gradient(to right, #c0392b, #9b2d23);
 }
 
-body.dark .pending {
+body.dark .badge.pending {
 	background: linear-gradient(to right, #f1c40f, #d4af37);
 }
 

@@ -16,6 +16,21 @@
 		<link rel="stylesheet" href="./rollout-tracker/RolloutTracker.css">
 	</head>
 	<body>
+		<!--
+			Hi there!
+			If you're reading this, you probably inspect element or console or view-source.
+			Anyways, I created this early in the morning on the 7th of June, hoping to be the first one out there to do this.
+			Well, I woke up to a notice another website was doing it but a lot of misinformation was being spread on the site.
+			My goal is to gather all community data and compile it onto a viewable page like this.
+			Everything is manual. Please have respect.
+
+			Thanks for visiting and thanks to all the community members helping feed me data so I can place it here!
+			You all mean a lot <3.
+			
+			~ Matthew (@thecodingguy)
+			June 9th, 2023 2:38 AM Eastern Time (GMT-4)
+			nya
+		-->
 		<!-- HEADER -->
 		<header>
 			<h1>Discord Username Rollout Tracker</h1>
@@ -29,7 +44,7 @@
 		<!-- ALERTS -->
 		<div class="alerts">
 			<div class="alert" id="alert-js">
-				<span class="alert-icon">&#9888;</span>
+				<span class="alert-icon"><span class="badge unconfirmed">IMPORTANT</span></span>
 				<span class="alert-text">This site requires JavaScript. If this page does not load, please try reloading.</span>
 			</div>
 		</div>
@@ -39,6 +54,7 @@
 			<!-- STATUS -->
 			<section class="status" id="status">
 				<h2>Rollout Status</h2>
+				<p>This applies up to the dates listed:</p>
 				<div class="loader" id="status-loader">
 					<div class="spin"></div>
 					<span class="text">NOW LOADING...</span>
@@ -47,7 +63,9 @@
 
 			<!-- TIMELINE -->
 			<section class="timeline" id="timeline">
-				<h3>Timeline</h3>
+				<div id="timeline-header" style="display: flex;justify-content: space-between;">
+					<h3>Timeline</h3>
+				</div>
 				<div class="loader" id="timeline-loader">
 					<div class="spin"></div>
 					<span class="text">NOW LOADING...</span>
@@ -90,7 +108,7 @@
 		};
 
 		// Check every if alert box is empty
-		const hideAlertsBox = () => { const alerts = document.querySelector(".alerts"); if (alerts) { alerts.style.display = alerts.matches(":empty") ? "block" : "none"; }; };
+		const hideAlertsBox = () => { const alerts = document.querySelector(".alerts"); if (alerts) { alerts.style.display = (alerts.childElementCount > 0) ? "block" : "none"; }; };
 		hideAlertsBox(); setInterval(hideAlertsBox, 1000);
 	</script>
 </html>
