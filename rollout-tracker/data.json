@@ -22,7 +22,7 @@
 	"timeline": [
 		{
 			"type": "confirmed",
-			"header": "Rollout 0",
+			"header": "Day 0",
 			"content": [
 				"<i>NOTE: This was for Discord Staff (and their personal accounts), Partners, Verified Server Owners, and some server owners with a certain revenue threshold.</i>",
 				"There is not much information for begun or completed times. It is believed that around approximately:",
@@ -32,7 +32,7 @@
 		},
 		{
 			"type": "confirmed",
-			"header": "Rollout 1",
+			"header": "Day 1",
 			"content": [
 				"[<c-timestamp unix=\"1685988081\">...</c-timestamp>] Rollout begun with <b>February 2015</b>.",
 				"[<c-timestamp unix=\"1686047367\">...</c-timestamp>] Rollout was considered completed with <b>February 2016</b> (Nitro) and <b>August 2015</b> (Non-Nitro)."
@@ -40,7 +40,7 @@
 		},
 		{
 			"type": "confirmed",
-			"header": "Rollout 2",
+			"header": "Day 2",
 			"content": [
 				"[<c-timestamp unix=\"1686083468\">...</c-timestamp>] Rollout begun with <b>March 2016</b> (Nitro) and <b>September 2015</b> (Non-Nitro).",
 				"[<c-timestamp unix=\"1686095953\">...</c-timestamp>] Rollout was considered completed with <b>October 2016</b> (Nitro) and <b>October 2015</b> (Non-Nitro)."
@@ -48,7 +48,7 @@
 		},
 		{
 			"type": "confirmed",
-			"header": "Rollout 3",
+			"header": "Day 3",
 			"content": [
 				"[<c-timestamp unix=\"1686159689\">...</c-timestamp>] Wave #1 begun with <b>January 2017</b> (Nitro) and <b>November 2015</b> (Non-Nitro).",
 				"[<c-timestamp unix=\"1686160852\">...</c-timestamp>] Wave #1 ended off with multiple confirmed reports of up to <b>February 2017</b> (Nitro).",
@@ -60,7 +60,7 @@
 		},
 		{
 			"type": "confirmed",
-			"header": "Rollout 4",
+			"header": "Day 4",
 			"content": [
 				"[<c-timestamp unix=\"1686247050\">...</c-timestamp>] Wave #1 begun with a massive jump to <b>December 2018</b> (Nitro).",
 				"[<c-timestamp unix=\"1686247341\">...</c-timestamp>] Wave #1 had multiple confirmed reports of up to <b>February 2016</b> (Non-Nitro).",
@@ -72,7 +72,7 @@
 		},
 		{
 			"type": "pending",
-			"header": "Rollout 5",
+			"header": "Day 5",
 			"content": [
 				"[<c-timestamp unix=\"1686333600\">...</c-timestamp>] Wave #1 may begin around this time.",
 
