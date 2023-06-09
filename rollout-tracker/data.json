@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686332861,
+		"lastUpdated": 1686342825,
 		"createdAt": 1686202839
 	},
 
@@ -15,7 +15,11 @@
 	"status": {
 		"confirmed": {
 			"nitro": "February 2022",
-			"nonnitro": "October 2016"
+			"nonnitro": "January 2017"
+		},
+		"unconfirmed": {
+			"nitro": "December 2022",
+			"nonnitro": "N/A"
 		}
 	},
 
@@ -74,9 +78,9 @@
 			"type": "pending",
 			"header": "Day 5",
 			"content": [
-				"[<c-timestamp unix=\"1686331320\">...</c-timestamp>] Wave #1 begun with <b>February 2022</b> (Nitro) and <b>October 2016</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686331320\">...</c-timestamp>] Wave #1 begun and ended with <b>February 2022</b> (Nitro) and <b>October 2016</b> (Non-Nitro).",
 
-				"[<c-timestamp unix=\"1686353400\">...</c-timestamp>] Wave #2 may begin around this time."
+				"[<c-timestamp unix=\"1686341343\">...</c-timestamp>] Wave #2 begun early, we are collecting the data."
 			]
 		}
 	],
