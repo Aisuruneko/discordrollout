@@ -14,11 +14,11 @@
 
 	"status": {
 		"confirmed": {
-			"nitro": "February 2022",
+			"nitro": "December 2022",
 			"nonnitro": "January 2017"
 		},
 		"unconfirmed": {
-			"nitro": "December 2022",
+			"nitro": "February 2023",
 			"nonnitro": "N/A"
 		}
 	},
@@ -75,12 +75,25 @@
 			]
 		},
 		{
-			"type": "pending",
+			"type": "confirmed",
 			"header": "Day 5",
 			"content": [
 				"[<c-timestamp unix=\"1686331320\">...</c-timestamp>] Wave #1 begun and ended with <b>February 2022</b> (Nitro) and <b>October 2016</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686339535\">...</c-timestamp>] It was at this time we realized the rollout seems to be giving Non-Nitro users the change, flipping what was going on with Nitro users where they never got any rollout.",
 
-				"[<c-timestamp unix=\"1686341343\">...</c-timestamp>] Wave #2 begun early, we are collecting the data."
+				"[<c-timestamp unix=\"1686341343\">...</c-timestamp>] Wave #2 begun early, starting off with <b>February 2022</b> (Nitro) and <b>October 2016</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686341799\">...</c-timestamp>] Wave #2 had multiple confirmed reports of up to <b>December 2016</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686343285\">...</c-timestamp>] Wave #2 had multiple confirmed reports of up to <b>November 2022</b> (Nitro).",
+				"[<c-timestamp unix=\"1686345126\">...</c-timestamp>] Wave #2 had some reports - yet unconfirmed due to its rarity - of up to <b>February 2023</b> (Nitro).",
+				"[<c-timestamp unix=\"1686347074\">...</c-timestamp>] It was at this time we realized Wave #2 started giving access to Nitro users who subscribed after the March 1st cutoff access to the update.",
+				"[<c-timestamp unix=\"1686346640\">...</c-timestamp>] Wave #2 ended off with <b>December 2022</b> and <b>January 2017</b> (Non-Nitro)."
+			]
+		},
+		{
+			"type": "pending",
+			"header": "Day 6",
+			"content": [
+				"We're unsure if this will happen over the weekend or on Monday. Check back reguarly to see any updates!"
 			]
 		}
 	],
