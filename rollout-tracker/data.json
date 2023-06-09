@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686263945,
+		"lastUpdated": 1686269424,
 		"createdAt": 1686202839
 	},
 
@@ -52,14 +52,22 @@
 			]
 		},
 		{
-			"type": "pending",
+			"type": "confirmed",
 			"header": "Rollout 4",
 			"content": [
 				"Begun at <c-timestamp unix=\"1686247050\">...</c-timestamp> jumping massively to <b>December 2018</b> (Nitro).",
 				"At <c-timestamp unix=\"1686247341\">...</c-timestamp>, there was multiple confirmed reports of up to <b>February 2016</b> (Non-Nitro).",
 				"At <c-timestamp unix=\"1686247566\">...</c-timestamp>, there was multiple confirmed reports of up to <b>January 2019</b> (Nitro) and <b>March 2016</b> (Non-Nitro).",
 				"At <c-timestamp unix=\"1686263764\">...</c-timestamp>, wave 2 rolled out with multiple confirmed reports of up to <b>June 2020</b> (Nitro) and <b>July 2016</b> (Non-Nitro).",
-				"Not completed yet, should be by <c-timestamp unix=\"1686268800\">...</c-timestamp>"
+				"Completed by <c-timestamp unix=\"1686268800\">...</c-timestamp> up to <b>June 2020</b> (Nitro) and <b>July 2016</b> (Non-Nitro)."
+			]
+		},
+		{
+			"type": "pending",
+			"header": "Rollout 5",
+			"content": [
+				"Wave #1 - Pending",
+				"Wave #2 - Pending"
 			]
 		}
 	],
