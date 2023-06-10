@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686354751,
+		"lastUpdated": 1686361323,
 		"createdAt": 1686202839
 	},
 
@@ -14,12 +14,8 @@
 
 	"status": {
 		"confirmed": {
-			"nitro": "December 2022",
-			"nonnitro": "January 2017"
-		},
-		"unconfirmed": {
 			"nitro": "February 2023",
-			"nonnitro": "N/A"
+			"nonnitro": "January 2017"
 		}
 	},
 
@@ -86,7 +82,8 @@
 				"[<c-timestamp unix=\"1686343285\">...</c-timestamp>] Wave #2 had multiple confirmed reports of up to <b>November 2022</b> (Nitro).",
 				"[<c-timestamp unix=\"1686345126\">...</c-timestamp>] Wave #2 had some reports - yet unconfirmed due to its rarity - of up to <b>February 2023</b> (Nitro).",
 				"[<c-timestamp unix=\"1686347074\">...</c-timestamp>] It was at this time we realized Wave #2 started giving access to Nitro users who subscribed after the March 1st cutoff access to the update.",
-				"[<c-timestamp unix=\"1686346640\">...</c-timestamp>] Wave #2 ended off with <b>December 2022</b> and <b>January 2017</b> (Non-Nitro)."
+				"[<c-timestamp unix=\"1686346640\">...</c-timestamp>] Wave #2 ended off with <b>December 2022</b> and <b>January 2017</b> (Non-Nitro).",
+				"[<c-timestamp unix=\"1686356632\">...</c-timestamp>] Thanks to two users who spotted some more January/February Nitro users around <c-timestamp unix=\"1686354300\">...</c-timestamp>, we can now confirm up to <b>February 2023</b> (Nitro)."
 			]
 		},
 		{
