@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "express-useragent": "^1.0.15"
+  },
+  "name": "discordrollout",
+  "version": "1.0.0",
+  "description": "Discord Username Rollout Tracker.",
+  "main": "src/index.js",
+  "scripts": {
+    "prod": "node .",
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aisuruneko/discordrollout.git"
+  },
+  "author": "thecodingguy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aisuruneko/discordrollout/issues"
+  },
+  "homepage": "https://github.com/Aisuruneko/discordrollout#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

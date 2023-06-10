@@ -6,6 +6,11 @@
  */
 
 /* ============================================== RESET */
+body {
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -22,6 +27,70 @@ a:hover {
 	transform: color 0.5s ease;
 	color: #aa69ba;
 }
+
+
+/* ============================================== LOADER */
+#loader-dim,
+#loader-container {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.25);
+	text-align: center;
+	color: #000;
+}
+#loader-container {
+	display: grid;
+	top: 50%;
+	height: fit-content;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.75);
+	justify-content: center;
+	align-items: center;
+	padding: 4em;
+}
+.loader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.spin {
+	background: transparent;
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	border: 3px solid #000;
+	border-radius: 50%;
+	border-top-color: transparent;
+	animation: spin 0.5s ease-in-out infinite;
+	-webkit-animation: spin 0.5s ease-in-out infinite;
+	margin: auto;
+}
+.text {
+	display: inline-block;
+	margin-left: .5em;
+	font-weight: 600;
+	font-size: 1.5em;
+}
+
+
+body.dark #loader-dim,
+body.dark #loader-container {
+	color: #fff;
+}
+
+body.dark #loader-dim #loader-container {
+	background: rgba(0, 0, 0, 0.75);
+}
+body.dark .spin {
+	border: 3px solid #fff;
+	border-top-color: transparent;
+}
+
+@keyframes spin { to { -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes spin { to { -webkit-transform: rotate(360deg); } }
 
 
 /* ============================================== ALERTS */
@@ -295,30 +364,6 @@ footer {
 }
 
 
-/* ============================================== LOADER */
-.loader {
-	display: flex;
-	align-items: center;
-}
-.loader .spin {
-	display: inline-block;
-	width: 2em;
-	height: 2em;
-	border: 3px solid rgba(0, 0, 0, .3);
-	border-radius: 50%;
-	border-top-color: rgba(0, 0, 0);
-	animation: spin 0.5s ease-in-out infinite;
-	-webkit-animation: spin 0.5s ease-in-out infinite;
-}
-.loader .text {
-	display: inline-block;
-	margin-left: .5em;
-}
-
-@keyframes spin { to { -webkit-transform: rotate(360deg); } }
-@-webkit-keyframes spin { to { -webkit-transform: rotate(360deg); } }
-
-
 /* ============================================== DARK THEME */
 body.dark {
 	background-color: #333;
@@ -373,14 +418,6 @@ body.dark .loader .spin {
 }
 
 /* ============================================== OTHERS */
-@keyframes spinner {
-	0% {
-		transform: translate3d(-50%, -50%, 0) rotate(0deg);
-	}
-	100% {
-		transform: translate3d(-50%, -50%, 0) rotate(360deg);
-	}
-}
 
 @media (max-width: 768px) {
 	h1 {

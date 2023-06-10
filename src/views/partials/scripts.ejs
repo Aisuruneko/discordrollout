@@ -1,0 +1,20 @@
+	<script src="./cdn/RolloutTracker.js"></script>
+	<script type="text/javascript">
+		const alertJS = document.getElementById("alert-js");
+		if (alertJS) alertJS.remove(); // Get rid of alert-js. We currently support JS
+
+		document.addEventListener("DOMContentLoaded", function() {
+
+			if (RolloutTracker) {
+				window.tracker = new RolloutTracker();
+				window.tracker.assets.base = "<%- process.env.BASE_URL %>/api/",
+				window.tracker.init();
+			} else {
+				alert("Major issue happened. RolloutTracker not found! Try reloading?");
+			};
+		});
+
+		// Check every if alert box is empty
+		const hideAlertsBox = () => { const alerts = document.querySelector(".alerts"); if (alerts) { alerts.style.display = (alerts.childElementCount > 0) ? "block" : "none"; }; };
+		hideAlertsBox(); setInterval(hideAlertsBox, 1000);
+	</script>

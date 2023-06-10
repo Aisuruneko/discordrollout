@@ -1,0 +1,9 @@
+# Discord Username Rollout Tracker
+
+# 1. Ignore personal things
+.env
+
+# 2. Ignore logs
+errors/
+logs/
+

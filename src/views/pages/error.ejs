@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+<%- include('../partials/meta'); %>
+	</head>
+	<body>
+
+<%- include('../partials/header'); %>
+
+		<!-- MAIN -->
+		<div class="main">
+			<h1><%- errData.message %></h1>
+			<p style="font-size: 110%">
+				Your request returned a <%- errData.code %>! Make sure to check the link and try again.
+				<br>
+				Reference ID: <code class="email" style="font-size:100%"><%- errData.refID %></code>.
+				<br>
+				<code class="email" style="font-size:100%">
+					<% let stackTrace = errData.fullError ? (errData.fullError.stack || errData.fullError.error.stack) : false;
+					if (stackTrace) { %>
+					<%- stackTrace.toString()
+						.replaceAll("\n", "<br>")
+						.replaceAll("\r\n", "<br>"); %>
+					<% }; %>
+				</code>
+			</p>
+		</div>
+
+<%- include('../partials/footer'); %>
+<script type="text/javascript">window.DONOTPOLL=true;</script>
+<%- include('../partials/scripts'); %>
+
+	</body>
+</html>
