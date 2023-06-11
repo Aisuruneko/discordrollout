@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686361323,
+		"lastUpdated": 1686480677,
 		"createdAt": 1686202839
 	},
 
@@ -157,7 +157,7 @@
 							"1686343285": "Wave #2 had multiple confirmed reports of up to <b>November 2022</b> (Nitro)."
 						},
 						{
-							"1686345126": " Wave #2 had some reports - yet unconfirmed due to its rarity - of up to <b>February 2023</b> (Nitro)."
+							"1686345126": "Wave #2 had some reports - yet unconfirmed due to its rarity - of up to <b>February 2023</b> (Nitro)."
 						},
 						{
 							"1686347074": "It was at this time we realized Wave #2 started giving access to some Nitro users who subscribed after the March 1st cutoff access to the update."
@@ -202,7 +202,7 @@
 			]
 		},
 		{
-			"header": "There are users who have it way after the date you list!",
+			"header": "There are users with later creation dates who have it way after the date(s) you list?!",
 			"content": [
 				"It may be possible, if one of the two conditions applies:",
 				" -> The user was apart of Rollout 0, which rolled the new system out for Discord Staff (and their personal accounts), Partners, Verified Server Owners, and some server owners with a certain revenue threshold.",
