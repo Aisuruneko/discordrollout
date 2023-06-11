@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686480677,
+		"lastUpdated": 1686482153,
 		"createdAt": 1686202839
 	},
 
@@ -175,8 +175,25 @@
 		{
 			"day": 6,
 			"type": "pending",
-			"content": "It seems any rollouts are highly unlikely this weekend - check back on Monday!",
-			"updates": null
+			"content": "No rollouts over the weekend!",
+			"updates": [
+				{
+					"wave": 1,
+					"rollouts": [
+						{
+							"1686592800": "Wave #1 should be begin around this time."
+						}
+					]
+				},
+				{
+					"wave": 2,
+					"rollouts": [
+						{
+							"1686614400": "Wave #2 should be begin around this time."
+						}
+					]
+				}
+			]
 		}
 	],
 
