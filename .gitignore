@@ -2,6 +2,7 @@
 
 # 1. Ignore personal things
 .env
+data/blocked.json
 
 # 2. Ignore logs
 errors/

@@ -1,0 +1,16 @@
+{
+	"theiphere": {
+		"reason": "custom reason ",
+		"blockMessage": "Make a message that will be returned to the user!",
+		"containMaintainer": true,
+		"blocked": "all"
+	},
+	"theotheriphere": {
+		"reason": "custom reason 2",
+		"blockMessage": "Bad boy!",
+		"containMaintainer": true,
+		"blocked": [
+			"/api/data/status"
+		]
+	}
+}
