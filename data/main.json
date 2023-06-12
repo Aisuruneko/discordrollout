@@ -1,14 +1,18 @@
 {
 	"meta": {
-		"lastUpdated": 1686538743,
+		"lastUpdated": 1686591792,
 		"createdAt": 1686202839
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "February 2023",
-			"nonnitro": "January 2017"
-		}
+			"nonnitro": "February 2017"
+		},
+		"unconfirmed": {
+			"nitro": "N/A",
+			"nonnitro": "September 2017"
+		},
 	},
 
 	"timeline": [
@@ -175,13 +179,13 @@
 		{
 			"day": 6,
 			"type": "pending",
-			"content": "No rollouts over the weekend!",
+			"content": "There was no rollouts over the weekend!",
 			"updates": [
 				{
 					"wave": 1,
 					"rollouts": [
 						{
-							"1686592800": "Wave #1 should be begin around this time."
+							"1686331320": "Wave #1 begun with <b>February 2017</b> (Non-Nitro)."
 						}
 					]
 				},
