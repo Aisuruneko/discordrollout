@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686607713,
+		"lastUpdated": 1686607849,
 		"createdAt": 1686202839
 	},
 
@@ -193,6 +193,9 @@
 					"rollouts": [
 						{
 							"1686607713": "Wave #2 begun with <b>November 2017</b> (Non-Nitro)."
+						},
+						{
+							"1686607849": "Wave #2 had multiple confirmed reports of up to <b>January 2018</b>."
 						}
 					]
 				}
