@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686482153,
+		"lastUpdated": 1686538743,
 		"createdAt": 1686202839
 	},
 
@@ -249,8 +249,11 @@
 			]
 		},
 		{
-			"header": "I want to report an issue / report a update / talk to you / etc...",
-			"content": "You can reach out to me via Discord at @<a href=\"%MAINTAINER_URL%\">%MAINTAINER_HANDLE%</a>."
+			"header": "I want to report an issue / report a update / use the API / talk to you / etc...",
+			"content": [
+				"You can reach out to me via Discord at @<a href=\"%MAINTAINER_URL%\">%MAINTAINER_HANDLE%</a>.",
+				"As far as the API goes: mainly what you probably want is: <code>/api/data/status</code>, which gives, if applicable, any current confirmed, unconfirmed, and/or pending status."
+			]
 		}
 	],
 

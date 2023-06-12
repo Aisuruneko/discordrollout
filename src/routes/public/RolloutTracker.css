@@ -212,6 +212,27 @@ h1 {
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+.refresh {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	justify-content: space-between;
+}
+.refresh .lastChecked, .refresh #refreshButton {
+	display: inline;
+	vertical-align: middle;
+}
+
+.refresh #refreshButton {
+	background: linear-gradient(to right, #2193b0, #6dd5ed);
+}
+
+.refresh #refreshButton.disabled {
+	background: linear-gradient(to right, #c0392b, #9b2d23);
+	cursor: not-allowed;
+}
+
 .status {
 	text-align: center;
 }

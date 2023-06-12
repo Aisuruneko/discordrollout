@@ -8,14 +8,37 @@
 class RolloutTracker {
 	constructor() {
 		// Main
-		this.version = "v2023.06.11_1";
+		this.version = "v2023.06.11_3";
 		this.assets = {
 			data: "data/full",
 			alerts: "alerts/full"
 		};
 		this.elements = {};
+		this.refreshTimer = {
+			seconds: {
+				total: 300,
+				current: 0,
+				showAfter: 2
+			},
+			onEnd: () => { this.refreshData(); },
+			timer: null
+		}
 	}
 
+
+	convertSeconds(seconds) {
+		const days = Math.floor(seconds / (3600 * 24));
+		seconds %= 3600 * 24;
+
+		const hours = Math.floor(seconds / 3600);
+		seconds %= 3600;
+
+		const minutes = Math.floor(seconds / 60);
+		seconds %= 60;
+
+		return { days, hours, minutes, seconds };
+	}
+	padZero(i) { return ((i < 10) ? `0${i}` : i); }
 
 	init() {
 		try {
@@ -28,14 +51,17 @@ class RolloutTracker {
 			this.elements.loaders = document.getElementsByClassName("loader");
 			this.elements.sections = document.getElementsByTagName("section");
 			this.elements.footer = document.getElementsByTagName("footer")[0];
+			this.elements.refreshButton = document.getElementById("refreshButton");
 
 			// Removes the whole loader altogether
 			const loaderDimmer = document.getElementById("loader-dim");
-			loaderDimmer.remove();
+			if (loaderDimmer) loaderDimmer.remove();
 
-			setInterval(() => {
-				this.refreshData();
-			}, ((60 * 1000) * 5));
+			// Do the data stuff
+			this.elements.refreshButton.addEventListener("click", () => {
+				if (!this.elements.refreshButton.classList.contains("disabled")) this.refreshData();
+			});
+
 			this.refreshData();
 		} catch (Ex) {
 			console.error(
@@ -50,9 +76,21 @@ class RolloutTracker {
 	}
 
 	refreshData() {
-		// Removes the whole loader altogether
+		clearInterval(this.refreshTimer.timer);
+		// Adds the loading thing next to the site name
 		const headerLoader = document.getElementById("header-loader");
 		headerLoader.style.display = "block";
+
+		const refreshButtonStatus = (disabled) => {
+			this.elements.refreshButton.classList[disabled ? "add" : "remove"]("disabled");
+			this.elements.refreshButton.innerText = disabled ? "Refreshing ..." : "Refresh now!";
+			this.elements.refreshButton.disabled = disabled;
+		};
+		refreshButtonStatus(true);
+		let nextCheckElement = document.getElementById("nextCheck");
+		if (nextCheckElement) nextCheckElement.innerHTML = "(Checking now...)";
+
+		const lastCheckedElement = document.getElementById("lastChecked");
 
 		const findIdFromElements = (elements, id) => {
 			if (id == "*") {
@@ -112,20 +150,41 @@ class RolloutTracker {
 			})
 			.catch(error => {
 				// We don't got the alerts...
-				console.error(
-					`==== ERROR ====` + "\n" +
-					`Generated: ${new Date().getTime()}` + "\n" +
-					`Error: ${error}` + "\n" +
-					error.stack +
-					`==== ERROR ====`
-				);
+
+				const genericError = (err) => {
+					console.error(
+						`==== ERROR ====` + "\n" +
+						`Generated: ${new Date().getTime()}` + "\n" +
+						`Error: ${err}` + "\n" +
+						err.stack +
+						`==== ERROR ====`
+					);
+					alert("Sorry, something went wrong while loading alerts. Try refreshing?");
+				};
+
+				if (error.stack) genericError()
+				else {
+					if (typeof error.json === "function") {
+						error.json().then(errorData => {
+							console.error(
+								`==== ERROR ====` + "\n" +
+								`Generated: ${new Date().getTime()}` + "\n" +
+								`Error: ${errorData.toString()}` + "\n" +
+								`==== ERROR ====`
+							);
+							alert(("Loading alerts failed: " + errorData.human) || "Sorry, something went wrong while loading alerts. Try refreshing?");
+						}).catch(err => {
+							genericError(err);
+						});
+					} else genericError(error);
+				};
 			});
 
 		// Fetch the data
 		const dataUrl = `${this.assets.base}${this.assets.data}`;
 		fetch(dataUrl)
 			.then(response => {
-				if (!response.ok) throw new Error(response.status);
+				if (!response.ok) throw response;
 				else return response.json();
 			})
 			.then(data => {
@@ -368,20 +427,54 @@ class RolloutTracker {
 					throw new Error("Missing section: footnotes");
 				};
 
+				this.timerInit();
+
 				headerLoader.style.display = "none";
+
+				// Update refreshed data & enable button
+				cleanElements(lastCheckedElement);
+				lastCheckedElement.innerHTML = `Last checked: <c-timestamp unix="${new Date().getTime() / 1000}"></c-timestamp> `;
+				nextCheckElement = document.createElement("span");
+				nextCheckElement.id = "nextCheck";
+				nextCheckElement.innerText = "(Checked just now!)";
+				lastCheckedElement.appendChild(nextCheckElement);
+				refreshButtonStatus(false);
+
 			})
 			.catch(error => {
 				// We don't got the data...
 				headerLoader.style.display = "none";
+				refreshButtonStatus(false);
 
-				console.error(
-					`==== ERROR ====` + "\n" +
-					`Generated: ${new Date().getTime()}` + "\n" +
-					`Error: ${error}` + "\n" +
-					error.stack +
-					`==== ERROR ====`
-				);
-				alert("Sorry, something went wrong while loading data. Try refreshing?");
+				lastCheckedElement.innerHTML = `Failed to fetch latest data!`;
+
+				const genericError = (err) => {
+					console.error(
+						`==== ERROR ====` + "\n" +
+						`Generated: ${new Date().getTime()}` + "\n" +
+						`Error: ${err}` + "\n" +
+						err.stack +
+						`==== ERROR ====`
+					);
+					alert("Sorry, something went wrong while loading data. Try refreshing?");
+				};
+
+				if (error.stack) genericError()
+				else {
+					if (typeof error.json === "function") {
+						error.json().then(errorData => {
+							console.error(
+								`==== ERROR ====` + "\n" +
+								`Generated: ${new Date().getTime()}` + "\n" +
+								`Error: ${errorData.toString()}` + "\n" +
+								`==== ERROR ====`
+							);
+							alert(("Loading data failed: " + errorData.human) || "Sorry, something went wrong while loading data. Try refreshing?");
+						}).catch(err => {
+							genericError(err);
+						});
+					} else genericError(error);
+				};
 			});
 		
 	}
@@ -414,7 +507,7 @@ class RolloutTracker {
 		if (!sortToggle) {
 			sortToggle = document.createElement("button");
 			sortToggle.id = "sortToggle";
-			sortToggle.className = "button gradient1";
+			sortToggle.className = "button badge confirmed";
 			sortToggle.innerHTML = "Sort by Newest";
 			timelineHeader.appendChild(sortToggle);
 		};
@@ -443,7 +536,7 @@ class RolloutTracker {
 			});
 
 			// Update toggle button
-			sortToggle.className = `button gradient${ascending ? "1" : "2"}`;
+			sortToggle.className = `button badge ${ascending ? "confirmed" : "unconfirmed"}`;
 			sortToggle.innerText = `Sort by ${ascending ? "Newest" : "Oldest"}`;
 
 			if (!forceMode) localStorage.setItem("sortingTimelineMethod", (ascending ? "asc" : "desc"));
@@ -457,6 +550,29 @@ class RolloutTracker {
 		const usrPreference = localStorage.getItem("sortingTimelineMethod");
 
 		return usrPreference ? updateSort(usrPreference) : null;
+	}
+
+	timerInit() {
+		this.refreshTimer.seconds.current = this.refreshTimer.seconds.total; // Reset
+		this.refreshTimer.timer = setInterval(() => {
+			if (this.refreshTimer.seconds.current < 0) {
+				clearInterval(this.refreshTimer.timer);
+				this.refreshTimer.onEnd();
+			} else {
+				if ((this.refreshTimer.seconds.total - this.refreshTimer.seconds.current) >= this.refreshTimer.seconds.showAfter) {
+					let nextCheckElement = document.getElementById("nextCheck");
+					const { days, hours, minutes, seconds } = this.convertSeconds(this.refreshTimer.seconds.current);
+					if (nextCheckElement) nextCheckElement.innerHTML = "(Checking in " +
+						`${(days != 0 ? (this.padZero(days) + "d") : "")}` +
+						`${(hours != 0 ? (this.padZero(hours) + "h") : "")}` +
+						`${(minutes != 0 ? (this.padZero(minutes) + "m") : "")}` +
+						`${(seconds + "s")}` +
+						".)";
+				};
+
+				this.refreshTimer.seconds.current--;
+			};
+		}, 1000);
 	}
 }
 
