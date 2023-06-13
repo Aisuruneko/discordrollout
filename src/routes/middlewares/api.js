@@ -27,7 +27,8 @@ module.exports = (app) => {
 		"Hang on, let me moonwalk right quick!",
 		"You've been hit by! You've been struck by! A smooth ratelimit.",
 		"You've been hit by! You've been struck by! Truck.",
-		"Touch grass."
+		"Touch grass.",
+		"https://twitter.com/discord/status/1501263121729552385"
 	];
 
 	const apiLimiterErr = (req) => {
