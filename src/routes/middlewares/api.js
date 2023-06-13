@@ -146,7 +146,7 @@ module.exports = (app) => {
 		`;
 
 		const theHTML = `
-		<link rel="stylesheet" href="http://${process.env.BASE_URL}/cdn/RolloutTracker.css">
+		<link rel="stylesheet" href="${process.env.BASE_URL}/cdn/RolloutTracker.css">
 		<style>${css}</style>
 		${html}
 		`;
