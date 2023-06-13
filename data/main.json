@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686607849,
+		"lastUpdated": 1686616816,
 		"createdAt": 1686202839
 	},
 
@@ -174,8 +174,8 @@
 		},
 		{
 			"day": 6,
-			"type": "pending",
-			"content": "There were no rollouts over the weekend!",
+			"type": "confirmed",
+			"content": "(There were no rollouts over the weekend!)",
 			"updates": [
 				{
 					"wave": 1,
@@ -184,7 +184,7 @@
 							"1686591510": "Wave #1 begun with <b>February 2017</b> (Non-Nitro), which also confirmed Nitro is completed."
 						},
 						{
-							"1686592055": "Wave #1 ended wifh multiple confirmed reports of up to <b>October 2017</b> (Non-Nitro)."
+							"1686592055": "Wave #1 ended with multiple confirmed reports of up to <b>October 2017</b> (Non-Nitro)."
 						}
 					]
 				},
@@ -195,7 +195,30 @@
 							"1686607713": "Wave #2 begun with <b>November 2017</b> (Non-Nitro)."
 						},
 						{
-							"1686607849": "Wave #2 had multiple confirmed reports of up to <b>January 2018</b>."
+							"1686607849": "Wave #2 ended with multiple confirmed reports of up to <b>January 2018</b>."
+						}
+					]
+				}
+			]
+		},
+		{
+			"day": 7,
+			"type": "pending",
+			"content": null,
+			"updates": [
+				{
+					"wave": 1,
+					"rollouts": [
+						{
+							"1686636000": "Wave #1 should begin by this time."
+						}
+					]
+				},
+				{
+					"wave": 2,
+					"rollouts": [
+						{
+							"1686655800": "Wave #2 should begin by this time."
 						}
 					]
 				}
