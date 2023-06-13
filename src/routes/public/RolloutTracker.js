@@ -8,7 +8,7 @@
 class RolloutTracker {
 	constructor() {
 		// Main
-		this.version = "v2023.06.11_3";
+		this.version = "v2023.06.13";
 		this.assets = {
 			data: "data/full",
 			alerts: "alerts/full"

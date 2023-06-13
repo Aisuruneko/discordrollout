@@ -50,13 +50,12 @@ module.exports = (app) => {
 	router.use(apiLimiter);
 
 	/* == / == */
-	router.get("/", (req, res, next) => {
+	router.get("/", (req, res) => {
 		return res.json({
 			status: "OK",
 			server: app.config.server
 		});
 	});
-
 
 
 	/* == /data/ == */
@@ -66,31 +65,108 @@ module.exports = (app) => {
 		platform: process.env.MAINTAINER_PLATFORM,
 		url: process.env.MAINTAINER_URL
 	};
-
 	data.footer = {
 		"content": [
 			"%SITE_VERSION% | Data Updated: <c-timestamp unix=%DATA_LAST_UPDATED%>...</c-timestamp>"
 		]
 	};
-	router.get("/data/full", (req, res, next) => {
+
+	router.get("/data/full", (req, res) => {
 		return res.json(data);
 	});
-	router.get("/data/maintainer", (req, res, next) => {
+	router.get("/data/maintainer", (req, res) => {
 		return res.json(data.maintainer);
 	});
-	router.get("/data/status", (req, res, next) => {
-		return res.json(data.status);
+	router.get("/data/status", (req, res) => {
+		return res.json({ ...data.status, meta: data.meta});
 	});
 
 
 	/* == /alerts/ == */
-	router.get("/alerts/full", (req, res, next) => {
+	router.get("/alerts/full", (req, res) => {
 		return res.json(alerts);
 	});
-	router.get("/alerts/:alertID", (req, res, next) => {
+	router.get("/alerts/:alertID", (req, res) => {
 		return res.json(alerts);
 	});
 
+
+	/* == /image/ == */
+	const puppeteer = require('puppeteer');
+	router.get("/image/status", async(req, res) => {
+		let DOMheight = 100;
+		let html = `
+		<body class="dark">
+		<div class="main">
+		<section class="status" id="status">
+			<h2>Rollout Status</h2>
+			<p id="header">This applies up to the dates listed:</p>`;
+		if (data.status.confirmed) {
+			html += `
+			<p>
+			<span class="badge confirmed">CONFIRMED</span><br>
+			<b>Nitro Users</b>: ${data.status.confirmed.nitro}<br>
+			<b>Non-Nitro Users</b>: ${data.status.confirmed.nonnitro}<br><br>
+			</p>`;
+			DOMheight += 100;
+		};
+		if (data.status.unconfirmed) {
+			html += `
+			<p>
+			<span class="badge unconfirmed">UNCONFIRMED</span><br>
+			<b>Nitro Users</b>: ${data.status.unconfirmed.nitro}<br>
+			<b>Non-Nitro Users</b>: ${data.status.unconfirmed.nonnitro}<br><br>
+			</p>`;
+			DOMheight += 100;
+		};
+		if (data.status.pending) {
+			html += `
+			<p>
+			<span class="badge pending">PENDING</span><br>
+			<b>Nitro Users</b>: ${data.status.pending.nitro}<br>
+			<b>Non-Nitro Users</b>: ${data.status.pending.nonnitro}<br><br>
+			</p>`;
+			DOMheight += 100;
+		};
+		html += `
+		</section>
+		</div>
+		</body>
+		`;
+
+		const css = `
+		.main {
+			margin: 0;
+			padding: 20px;
+			border: none;
+			width: 100%;
+			height: fit-content;
+			box-shadow: none !important;
+		}
+		`;
+
+		const theHTML = `
+		<link rel="stylesheet" href="http://${process.env.BASE_URL}/cdn/RolloutTracker.css">
+		<style>${css}</style>
+		${html}
+		`;
+		try {
+			const browser = await puppeteer.launch({headless: "new"});
+			const page = await browser.newPage();
+
+			await page.setViewport({ width: 340, height: DOMheight });
+			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: 'networkidle0' });
+
+			const screenshot = await page.screenshot({ type: "png" });
+			res.set('Content-Type', 'image/png');
+			res.send(screenshot);
+
+			await browser.close();
+		} catch (error) {
+			console.error(error);
+			res.status(500).json(app.functions.returnError(500, error, true));
+		};
+	});
 
 	router.all("*", (req, res, next) => res.status(404).json(app.functions.returnError(404, null, false)));
 
