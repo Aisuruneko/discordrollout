@@ -125,6 +125,7 @@ module.exports = (app) => {
 		<div class="main">
 		<section class="status" id="status">
 			<h2>Rollout Status</h2>
+			<p style="font-size:40%;margin: 0 auto;margin-top:-2.5em;width:100%;">Visit ${process.env.BASE_URL} for the latest information!</p>
 			<p id="header">This applies up to the dates listed:</p>`;
 		if (data.status.confirmed) {
 			html += `
