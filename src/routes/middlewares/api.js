@@ -67,13 +67,12 @@ module.exports = (app) => {
 		};
 
 		if (!req.url.includes("/data/full")) return next();
-
-		if (!req.headers["referer"] || !req.headers["referer"].includes(process.env.BASE_URL)) {
+		else if (!req.headers["referer"] || !req.headers["referer"].includes(process.env.BASE_URL)) {
 			const returningError = app.functions.returnError(403, `Blocked ${req.ip} from accessing ${req.url} due to RESOURCE_BLOCKED.`, true);
 			returningError["message"] = "This endpoint is only available for the main site! Please contact the maintainer if you have any questions.";
 			returningError["maintainer"] = data.maintainer;
 			return res.status(403).json(returningError);
-		}
+		};
 		return next();
 	});
 
@@ -187,6 +186,7 @@ module.exports = (app) => {
 
 			const screenshot = await page.screenshot({ type: "png" });
 			res.set("Content-Type", "image/png");
+			res.set('Cache-Control', "max-age=60");
 			res.send(screenshot);
 
 			await browser.close();
