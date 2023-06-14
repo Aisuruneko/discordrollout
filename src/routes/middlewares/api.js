@@ -183,14 +183,16 @@ module.exports = (app) => {
 			const page = await browser.newPage();
 
 			await page.setViewport({ width: 1200, height: DOMheight });
-			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "networkidle0" });
+			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "domcontentloaded" });
 
 			const screenshot = await page.screenshot({ type: "png" });
+			await browser.close();
+
 			res.set("Content-Type", "image/png");
 			res.set('Cache-Control', "max-age=60");
-			res.send(screenshot);
+			res.end(screenshot);
 
-			await browser.close();
+
 		} catch (error) {
 			console.error(error);
 			res.status(500).json(app.functions.returnError(500, error, true));
