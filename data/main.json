@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686769719,
+		"lastUpdated": 1686772997,
 		"createdAt": 1686202839
 	},
 
@@ -247,7 +247,7 @@
 					"wave": 1,
 					"rollouts": [
 						{
-							"1686763586": "Wave #1 begun with up to <b>January 2019</b> (Non-Nitro)."
+							"1686763586": "Wave #1 begun and ended off with up to <b>January 2019</b> (Non-Nitro)."
 						}
 					]
 				},
@@ -255,7 +255,10 @@
 					"wave": 2,
 					"rollouts": [
 						{
-							"1686769719": "Wave #2 begun randomly with up to <b>May 2019</b> (Non-Nitro)."
+							"1686769413": "Wave #2 begun randomly with up to <b>March 2019</> (Non-Nitro)."
+						},
+						{
+							"1686769719": "Wave #2 ended off with multiple confirmed reports of up to <b>May 2019</b> (Non-Nitro)."
 						}
 					]
 				}
@@ -301,7 +304,7 @@
 		},
 		{
 			"header": "How often does this page update?",
-			"content": "The page reloads every 5 minutes (to save bandwidth, as well). This page will be updated carefully to avoid misinformation as much as possible."
+			"content": "The data on the page refreshes every 5 minutes (to save bandwidth, as well). This page will be updated carefully to avoid misinformation as much as possible."
 		},
 		{
 			"header": "What are the times?!",
