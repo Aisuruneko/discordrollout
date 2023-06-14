@@ -161,13 +161,15 @@ module.exports = (app) => {
 		`;
 
 		const css = `
-		.main {
-			margin: 0;
+		html, body { background: #222 !important; }
+		.main{
+			margin: auto;
 			padding: 20px;
 			border: none;
-			width: 100%;
+			width: 100% !important;
 			height: fit-content;
 			box-shadow: none !important;
+			font-size: 120%;
 		}
 		`;
 
@@ -180,11 +182,11 @@ module.exports = (app) => {
 			const browser = await puppeteer.launch({ headless: "new" });
 			const page = await browser.newPage();
 
-			await page.setViewport({ width: 340, height: DOMheight });
+			await page.setViewport({ width: 1200, height: DOMheight });
 			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "networkidle0" });
 
 			const screenshot = await page.screenshot({ type: "png" });
-			res.set('Content-Type', 'image/png');
+			res.set("Content-Type", "image/png");
 			res.send(screenshot);
 
 			await browser.close();
