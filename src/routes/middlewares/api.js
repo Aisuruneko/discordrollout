@@ -154,14 +154,14 @@ module.exports = (app) => {
 			DOMheight += 100;
 		};
 		html += `
-		<p style="font-size:50%;margin: 0 auto;margin-top:-2.5em;width:100%;">Generated: ${new Date().getTime()} | Visit ${process.env.BASE_URL} for the latest information!</p>
+		<p style="font-size:50%;margin: 0 auto;margin-top:-2.5em;width:100%;">Generated: ${new Date().getTime()} | Visit ${process.env.BASE_URL}</p>
 		</section>
 		</div>
 		</body>
 		`;
 
 		const css = `
-		html, body { background: #222 !important; }
+		html, body { background: #222 !important; width: 100% !important; }
 		.main{
 			margin: auto;
 			padding: 20px;
