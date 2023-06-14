@@ -17,6 +17,20 @@ const oneMinute = (60 * 1000);
 
 module.exports = (app) => {
 
+	// Add in some data.
+	data.maintainer = {
+		handle: process.env.MAINTAINER_HANDLE,
+		platform: process.env.MAINTAINER_PLATFORM,
+		url: process.env.MAINTAINER_URL
+	};
+	data.footer = {
+		"content": [
+			"%SITE_VERSION% | Data Updated: <c-timestamp unix=%DATA_LAST_UPDATED%>...</c-timestamp>"
+		]
+	};
+	data.source = process.env.BASE_URL;
+	alerts.source = process.env.BASE_URL;
+
 	const rateLimitMessages = [
 		"You've have too much to drink of the tea!",
 		"Aah, that's too much! Make sure to drink water and eat food!" ,
@@ -35,9 +49,33 @@ module.exports = (app) => {
 		const returningError = app.functions.returnError(429, `Blocked ${req.ip} from accessing ${req.url} due to RATELIMIT.`, true);
 		returningError["human"] = rateLimitMessages[Math.floor(Math.random() * rateLimitMessages.length)];
 		returningError["message"] = "Too many requests! Please contact the maintainer if you have any questions.";
-		returningError["maintainer"] = { handle: process.env.MAINTAINER_HANDLE, platform: process.env.MAINTAINER_PLATFORM, url: process.env.MAINTAINER_URL };
+		returningError["maintainer"] = data.maintainer;
 		return returningError;
 	};
+
+	router.use((req, res, next) => {
+		/* CORS */
+		const cors = req.hostname.includes(process.env.ALLOWORIGINHOST);
+		res.set({
+			"Access-Control-Allow-Origin": ((cors) ? req.headers.origin : process.env.ALLOWORIGINHOST),
+			"Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+			"Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin",
+			"Access-Control-Allow-Credentials": "true"
+		});
+		if (req.method == "OPTIONS") {
+			return res.end();
+		};
+
+		if (!req.url.includes("/data/full")) return next();
+
+		if (!req.headers["referer"] || !req.headers["referer"].includes(process.env.BASE_URL)) {
+			const returningError = app.functions.returnError(403, `Blocked ${req.ip} from accessing ${req.url} due to RESOURCE_BLOCKED.`, true);
+			returningError["message"] = "This endpoint is only available for the main site! Please contact the maintainer if you have any questions.";
+			returningError["maintainer"] = data.maintainer;
+			return res.status(403).json(returningError);
+		}
+		return next();
+	});
 
 	const apiLimiter = rateLimit({
 		windowMs: (oneMinute * 10), // x minutes.
@@ -59,18 +97,6 @@ module.exports = (app) => {
 
 
 	/* == /data/ == */
-	// Add in some data.
-	data.maintainer = {
-		handle: process.env.MAINTAINER_HANDLE,
-		platform: process.env.MAINTAINER_PLATFORM,
-		url: process.env.MAINTAINER_URL
-	};
-	data.footer = {
-		"content": [
-			"%SITE_VERSION% | Data Updated: <c-timestamp unix=%DATA_LAST_UPDATED%>...</c-timestamp>"
-		]
-	};
-
 	router.get("/data/full", (req, res) => {
 		return res.json(data);
 	});
@@ -78,7 +104,7 @@ module.exports = (app) => {
 		return res.json(data.maintainer);
 	});
 	router.get("/data/status", (req, res) => {
-		return res.json({ ...data.status, meta: data.meta});
+		return res.json({ ...data.status, meta: data.meta, source: data.source});
 	});
 
 
@@ -92,7 +118,7 @@ module.exports = (app) => {
 
 
 	/* == /image/ == */
-	const puppeteer = require('puppeteer');
+	const puppeteer = require("puppeteer");
 	router.get("/image/status", async(req, res) => {
 		let DOMheight = 100;
 		let html = `
@@ -151,11 +177,11 @@ module.exports = (app) => {
 		${html}
 		`;
 		try {
-			const browser = await puppeteer.launch({headless: "new"});
+			const browser = await puppeteer.launch({ headless: "new" });
 			const page = await browser.newPage();
 
 			await page.setViewport({ width: 340, height: DOMheight });
-			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: 'networkidle0' });
+			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "networkidle0" });
 
 			const screenshot = await page.screenshot({ type: "png" });
 			res.set('Content-Type', 'image/png');
