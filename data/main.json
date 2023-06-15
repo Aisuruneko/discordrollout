@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686793061,
+		"lastUpdated": 1686844920,
 		"createdAt": 1686202839
 	},
 
@@ -240,7 +240,7 @@
 		},
 		{
 			"day": 8,
-			"type": "pending",
+			"type": "confirmed",
 			"content": null,
 			"updates": [
 				{
@@ -278,6 +278,29 @@
 						},
 						{
 							"1686788678": "Wave #4 ended off with multiple confirmed reports of up to <b>December 2019</b> (Non-Nitro)."
+						}
+					]
+				}
+			]
+		},
+		{
+			"day": 9,
+			"type": "pending",
+			"content": "<i>OWNER NOTE: It's becoming impossible to predict the times and waves.</i>",
+			"updates": [
+				{
+					"wave": 1,
+					"rollouts": [
+						{
+							"1686851100": "Wave #1 should begin around this time."
+						}
+					]
+				},
+				{
+					"wave": 2,
+					"rollouts": [
+						{
+							"1686868200": "Wave #2 should begin around this time."
 						}
 					]
 				}
