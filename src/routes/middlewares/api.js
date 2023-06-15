@@ -117,87 +117,87 @@ module.exports = (app) => {
 
 
 	/* == /image/ == */
-	const puppeteer = require("puppeteer");
-	router.get("/image/status", async(req, res) => {
-		let DOMheight = 100;
-		let html = `
-		<body class="dark">
-		<div class="main">
-		<section class="status" id="status">
-			<h2>Rollout Status</h2>
-			<p id="header">This applies up to the dates listed:</p>`;
-		if (data.status.confirmed) {
-			html += `
-			<p>
-			<span class="badge confirmed">CONFIRMED</span><br>
-			<b>Nitro Users</b>: ${data.status.confirmed.nitro}<br>
-			<b>Non-Nitro Users</b>: ${data.status.confirmed.nonnitro}<br><br>
-			</p>`;
-			DOMheight += 100;
-		};
-		if (data.status.unconfirmed) {
-			html += `
-			<p>
-			<span class="badge unconfirmed">UNCONFIRMED</span><br>
-			<b>Nitro Users</b>: ${data.status.unconfirmed.nitro}<br>
-			<b>Non-Nitro Users</b>: ${data.status.unconfirmed.nonnitro}<br><br>
-			</p>`;
-			DOMheight += 100;
-		};
-		if (data.status.pending) {
-			html += `
-			<p>
-			<span class="badge pending">PENDING</span><br>
-			<b>Nitro Users</b>: ${data.status.pending.nitro}<br>
-			<b>Non-Nitro Users</b>: ${data.status.pending.nonnitro}<br><br>
-			</p>`;
-			DOMheight += 100;
-		};
-		html += `
-		<p style="font-size:50%;margin: 0 auto;margin-top:-2.5em;width:100%;">Generated: ${new Date().getTime()} | Visit ${process.env.BASE_URL}</p>
-		</section>
-		</div>
-		</body>
-		`;
+// 	const puppeteer = require("puppeteer");
+// 	router.get("/image/status", async(req, res) => {
+// 		let DOMheight = 100;
+// 		let html = `
+// 		<body class="dark">
+// 		<div class="main">
+// 		<section class="status" id="status">
+// 			<h2>Rollout Status</h2>
+// 			<p id="header">This applies up to the dates listed:</p>`;
+// 		if (data.status.confirmed) {
+// 			html += `
+// 			<p>
+// 			<span class="badge confirmed">CONFIRMED</span><br>
+// 			<b>Nitro Users</b>: ${data.status.confirmed.nitro}<br>
+// 			<b>Non-Nitro Users</b>: ${data.status.confirmed.nonnitro}<br><br>
+// 			</p>`;
+// 			DOMheight += 100;
+// 		};
+// 		if (data.status.unconfirmed) {
+// 			html += `
+// 			<p>
+// 			<span class="badge unconfirmed">UNCONFIRMED</span><br>
+// 			<b>Nitro Users</b>: ${data.status.unconfirmed.nitro}<br>
+// 			<b>Non-Nitro Users</b>: ${data.status.unconfirmed.nonnitro}<br><br>
+// 			</p>`;
+// 			DOMheight += 100;
+// 		};
+// 		if (data.status.pending) {
+// 			html += `
+// 			<p>
+// 			<span class="badge pending">PENDING</span><br>
+// 			<b>Nitro Users</b>: ${data.status.pending.nitro}<br>
+// 			<b>Non-Nitro Users</b>: ${data.status.pending.nonnitro}<br><br>
+// 			</p>`;
+// 			DOMheight += 100;
+// 		};
+// 		html += `
+// 		<p style="font-size:50%;margin: 0 auto;margin-top:-2.5em;width:100%;">Generated: ${new Date().getTime()} | Visit ${process.env.BASE_URL}</p>
+// 		</section>
+// 		</div>
+// 		</body>
+// 		`;
 
-		const css = `
-		html, body { background: #222 !important; width: 100% !important; }
-		.main{
-			margin: auto;
-			padding: 20px;
-			border: none;
-			width: 100% !important;
-			height: fit-content;
-			box-shadow: none !important;
-			font-size: 120%;
-		}
-		`;
+// 		const css = `
+// 		html, body { background: #222 !important; width: 100% !important; }
+// 		.main{
+// 			margin: auto;
+// 			padding: 20px;
+// 			border: none;
+// 			width: 100% !important;
+// 			height: fit-content;
+// 			box-shadow: none !important;
+// 			font-size: 120%;
+// 		}
+// 		`;
 
-		const theHTML = `
-		<link rel="stylesheet" href="${process.env.BASE_URL}/cdn/RolloutTracker.css">
-		<style>${css}</style>
-		${html}
-		`;
-		try {
-			const browser = await puppeteer.launch({ headless: "new" });
-			const page = await browser.newPage();
+// 		const theHTML = `
+// 		<link rel="stylesheet" href="${process.env.BASE_URL}/cdn/RolloutTracker.css">
+// 		<style>${css}</style>
+// 		${html}
+// 		`;
+// 		try {
+// 			const browser = await puppeteer.launch({ headless: "new" });
+// 			const page = await browser.newPage();
 
-			await page.setViewport({ width: 1200, height: DOMheight });
-			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "domcontentloaded" });
+// 			await page.setViewport({ width: 1200, height: DOMheight });
+// 			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "domcontentloaded" });
 
-			const screenshot = await page.screenshot({ type: "png" });
-			await browser.close();
+// 			const screenshot = await page.screenshot({ type: "png" });
+// 			await browser.close();
 
-			res.set("Content-Type", "image/png");
-			res.set('Cache-Control', "max-age=60");
-			res.end(screenshot);
+// 			res.set("Content-Type", "image/png");
+// 			res.set('Cache-Control', "max-age=60");
+// 			res.end(screenshot);
 
 
-		} catch (error) {
-			console.error(error);
-			res.status(500).json(app.functions.returnError(500, error, true));
-		};
-	});
+// 		} catch (error) {
+// 			console.error(error);
+// 			res.status(500).json(app.functions.returnError(500, error, true));
+// 		};
+// 	});
 
 	router.all("*", (req, res, next) => res.status(404).json(app.functions.returnError(404, null, false)));
 
