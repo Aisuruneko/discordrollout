@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686353428,
+		"lastUpdated": 1686792279,
 		"createdAt": 1686290199
 	},
 
@@ -9,6 +9,11 @@
 			"id": "nitro-bugs",
 			"icon": "<span class=\"badge pending\">ALERT</span>",
 			"text": "There is a bug affecting some Nitro users being labeled as Non-Nitro Users and vice versa; Discord is internally aware."
+		},
+		{
+			"id": "gift-no-count",
+			"icon": "<span class=\"badge pending\">UPDATE</span>",
+			"text": "Discord Nitro gifts DO NOT count (confirmed by DStaff). Apologies..."
 		}
 	]
 }
