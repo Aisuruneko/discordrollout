@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686788678,
+		"lastUpdated": 1686792279,
 		"createdAt": 1686202839
 	},
 
@@ -277,7 +277,7 @@
 							"1686788129": "Wave #4 (?????) begun randomly with up to <b>November 2019</b> (Non-Nitro)."
 						},
 						{
-							"1686788678": "Wave #4 had multiple confirmed reports of up to <b>December 2019</b> (Non-Nitro)."
+							"1686788678": "Wave #4 ended off with multiple confirmed reports of up to <b>December 2019</b> (Non-Nitro)."
 						}
 					]
 				}
@@ -350,7 +350,7 @@
 			"note": "1",
 			"content": [
 				"Discord will only consider you a \"Nitro User\" as long as all of the following are true:",
-				" &nbsp;&nbsp;&nbsp;-> You had Nitro on or before March 1st, 2023 AND continue to keep it until you receive the change (this applies for both gifted and purchased).",
+				" &nbsp;&nbsp;&nbsp;-> You had Nitro on or before March 1st, 2023 AND continue to keep it until you receive the change (this applies for ONLY purchased).",
 				" &nbsp;&nbsp;&nbsp;-> You got your Nitro back within the grace period (typically around 3 days), if you had lost it.",
 				" &nbsp;&nbsp;&nbsp;-> Your Nitro is NOT Nitro Basic (Nitro Classic will be honored, if you're wondering).",
 				" &nbsp;&nbsp;&nbsp;-> You do not have a Nitro Trial, as those were in May."
