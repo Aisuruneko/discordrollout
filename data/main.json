@@ -1,13 +1,13 @@
 {
 	"meta": {
-		"lastUpdated": 1686778748,
+		"lastUpdated": 1686788129,
 		"createdAt": 1686202839
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "August 2019"
+			"nonnitro": "November 2019"
 		}
 	},
 
@@ -266,7 +266,15 @@
 					"wave": 3,
 					"rollouts": [
 						{
-							"1686778748": "Wave #3 begun early with up to <b>August 2019</b> (Non-Nitro)."
+							"1686778748": "Wave #3 begun early and ended with up to <b>August 2019</b> (Non-Nitro)."
+						}
+					]
+				},
+				{
+					"wave": 4,
+					"rollouts": [
+						{
+							"1686788129": "Wave #4 (?????) begun randomly with up to <b>November 2019</b> (Non-Nitro)."
 						}
 					]
 				}
