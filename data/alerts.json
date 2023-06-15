@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686792279,
+		"lastUpdated": 1686793061,
 		"createdAt": 1686290199
 	},
 
@@ -13,7 +13,7 @@
 		{
 			"id": "gift-no-count",
 			"icon": "<span class=\"badge pending\">UPDATE</span>",
-			"text": "Discord Nitro gifts DO NOT count (confirmed by DStaff). Apologies..."
+			"text": "Discord Nitro gifts may NOT count (info from DStaff). Apologies..."
 		}
 	]
 }
