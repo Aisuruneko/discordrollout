@@ -188,10 +188,10 @@ module.exports = (app) => {
 
 		statusImgCache.lastChecked = currentTime;
 		try {
-			const browser = await puppeteer.launch({ headless: "new" });
+			const browser = await puppeteer.launch({ headless: "new", args: [ "--no-sandbox", "--disable-setuid-sandbox" ] });
 			const page = await browser.newPage();
 
-			await page.setViewport({ width: 1200, height: DOMheight, deviceScaleFactor: 0 });
+			await page.setViewport({ width: 1200, height: DOMheight, deviceScaleFactor: 1 });
 			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "domcontentloaded" });
 
 			statusImgCache.data = await page.screenshot({ type: "png" });
