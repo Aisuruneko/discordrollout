@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686895855,
+		"lastUpdated": 1686902668,
 		"createdAt": 1686202839
 	},
 
@@ -383,12 +383,15 @@
 		},
 		{
 			"header": "What are the times?!",
-			"content": "To help you understand where the tracker is, 99% of this page is in your local timezone."
+			"content": [
+				"To help you understand where the tracker is, 99% of this page is in your local timezone.",
+				"To convert it or use it elsewhere, click on the time that appears in your time. You may select the text in the tooltip or double-click it to copy the UNIX timestamp to the clipboard."
+			]
 		},
 		{
-			"header": "Is this official / Source?",
+			"header": "Is this official / What's your source?",
 			"content": [
-				"Sadly, <b>this is unofficial</b> and any official information is what Discord themselves says. Note that the sources vary, but they are mainly from Discord Admins, an official Discord server."
+				"Sadly, <b>this is unofficial</b>. Note that the sources vary, but sources are mainly from Discord Admins, which is an official Discord server."
 			]
 		},
 		{

@@ -8,7 +8,7 @@
 class RolloutTracker {
 	constructor() {
 		// Main
-		this.version = "v2023.06.16";
+		this.version = "v2023.06.16_1";
 		this.assets = {
 			data: "data/full",
 			alerts: "alerts/full"
@@ -493,7 +493,7 @@ class RolloutTracker {
 
 		// Theme Handling
 		const usrPreference = localStorage.getItem("theme");
-		const sysPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+		const sysPreference = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
 		return ((usrPreference) ? (updateTheme((usrPreference === "dark"))) : (updateTheme((sysPreference === "dark"))));
 	}
@@ -580,67 +580,75 @@ class RolloutTracker {
 class CustomTimestamp extends HTMLElement {
 	constructor() {
 		super();
-		this.unixTimestamp = parseInt(this.getAttribute('unix'));
-		this.tooltip = document.createElement('div');
+		this.unixTimestamp = parseInt(this.getAttribute("unix"));
+		this.tooltip = document.createElement("div");
 		this.tooltipVisible = false;
+		this.tooltipText = `UNIX Timestamp: ${this.unixTimestamp}`;
+		this.originalText = "";
+		this.copyTimeout = null;
 
-		this.handleMouseEnter = this.handleMouseEnter.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
 	}
 
 	connectedCallback() {
 		this.render();
-		this.addEventListener('mouseenter', this.handleMouseEnter);
-		this.addEventListener('mouseleave', this.handleMouseLeave);
+		this.addEventListener("click", this.handleClick);
+		this.tooltip.addEventListener("dblclick", this.handleClick);
+		this.tooltip.addEventListener("mouseleave", this.handleMouseLeave);
 	}
 
 	render() {
 		const timestamp = new Date(this.unixTimestamp * 1000).toLocaleString();
+		this.originalText = timestamp;
 		this.innerHTML = `<span class="timestamp">${timestamp}</span>`;
-		this.style.cursor = 'pointer';
-		this.style.position = 'relative';
+		this.style.cursor = "pointer";
+		this.style.position = "relative";
 	}
 
-	handleMouseEnter() {
+	handleClick(event) {
 		if (!this.tooltipVisible) {
-			this.tooltip.innerText = `UNIX Timestamp: ${this.unixTimestamp}`;
-			this.tooltip.classList.add('tooltip');
+			this.tooltip.innerText = this.tooltipText;
+			this.tooltip.classList.add("tooltip");
 
 			const rect = this.getBoundingClientRect();
 
-			this.tooltip.style.top = `${rect.top + window.scrollY - 19}px`;
+			this.tooltip.style.top = `${rect.top + window.scrollY - 30}px`;
 			this.tooltip.style.left = `${rect.left + window.scrollX}px`;
 
 			document.body.appendChild(this.tooltip);
 
-			this.tooltip.addEventListener('mouseenter', () => {
-				this.tooltip.style.visibility = 'visible';
-			});
-
-			this.tooltip.addEventListener('mouseleave', this.handleMouseLeave);
-			this.addEventListener('mouseleave', this.handleMouseLeave);
-
+			this.addEventListener("mouseleave", this.handleMouseLeave);
 			this.tooltipVisible = true;
-		};
+		} else if (event.target === this.tooltip) {
+			this.copyToClipboard();
+		}
 	}
 
-	handleMouseLeave() {
-		if (this.tooltipVisible) {
+	handleMouseLeave(event) {
+		const { relatedTarget } = event;
+
+		if (!this.contains(relatedTarget) && !this.tooltip.contains(relatedTarget)) {
 			document.body.removeChild(this.tooltip);
+			this.removeEventListener("mouseleave", this.handleMouseLeave);
 			this.tooltipVisible = false;
-		};
+		}
 	}
-};
-customElements.define("c-timestamp", CustomTimestamp);
 
-// } catch (Ex) {
-// 	console.error(
-// 		`==== ERROR ====` + "\n" +
-// 		`PLEASE REPORT TO ${this.data.maintainer.handle} ON ${this.data.maintainer.platform}` + "\n" +
-// 		`Generated: ${new Date().getTime()}` + "\n" +
-// 		`Error: ${Ex}` + "\n" +
-// 		Ex.stack +
-// 		`==== ERROR ====`
-// 	);
-// 	alert("Sorry, something went wrong while initializing. Try refreshing?");
-// };
+	copyToClipboard() {
+		this.tooltip.removeEventListener("mouseleave", this.handleMouseLeave);
+		navigator.clipboard.writeText(this.tooltipText.toLowerCase().replace("unix timestamp: ", "")).then(() => {
+			this.tooltip.innerText = "Copied!";
+			this.copyTimeout = setTimeout(() => {
+				this.tooltip.innerText = this.tooltipText;
+				this.tooltip.addEventListener("mouseleave", this.handleMouseLeave);
+			}, 1000);
+		});
+	}
+
+	disconnectedCallback() {
+		clearTimeout(this.copyTimeout);
+	}
+}
+
+customElements.define("c-timestamp", CustomTimestamp);
