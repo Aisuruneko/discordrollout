@@ -6,6 +6,7 @@
 const express = require("express");
 const rateLimit = require("express-rate-limit");
 const router = express.Router();
+const puppeteer = require("puppeteer");
 
 const fs = require("fs");
 const path = require("path");
@@ -117,87 +118,111 @@ module.exports = (app) => {
 
 
 	/* == /image/ == */
-// 	const puppeteer = require("puppeteer");
-// 	router.get("/image/status", async(req, res) => {
-// 		let DOMheight = 100;
-// 		let html = `
-// 		<body class="dark">
-// 		<div class="main">
-// 		<section class="status" id="status">
-// 			<h2>Rollout Status</h2>
-// 			<p id="header">This applies up to the dates listed:</p>`;
-// 		if (data.status.confirmed) {
-// 			html += `
-// 			<p>
-// 			<span class="badge confirmed">CONFIRMED</span><br>
-// 			<b>Nitro Users</b>: ${data.status.confirmed.nitro}<br>
-// 			<b>Non-Nitro Users</b>: ${data.status.confirmed.nonnitro}<br><br>
-// 			</p>`;
-// 			DOMheight += 100;
-// 		};
-// 		if (data.status.unconfirmed) {
-// 			html += `
-// 			<p>
-// 			<span class="badge unconfirmed">UNCONFIRMED</span><br>
-// 			<b>Nitro Users</b>: ${data.status.unconfirmed.nitro}<br>
-// 			<b>Non-Nitro Users</b>: ${data.status.unconfirmed.nonnitro}<br><br>
-// 			</p>`;
-// 			DOMheight += 100;
-// 		};
-// 		if (data.status.pending) {
-// 			html += `
-// 			<p>
-// 			<span class="badge pending">PENDING</span><br>
-// 			<b>Nitro Users</b>: ${data.status.pending.nitro}<br>
-// 			<b>Non-Nitro Users</b>: ${data.status.pending.nonnitro}<br><br>
-// 			</p>`;
-// 			DOMheight += 100;
-// 		};
-// 		html += `
-// 		<p style="font-size:50%;margin: 0 auto;margin-top:-2.5em;width:100%;">Generated: ${new Date().getTime()} | Visit ${process.env.BASE_URL}</p>
-// 		</section>
-// 		</div>
-// 		</body>
-// 		`;
+	const statusImgCache = {
+		lastChecked: 0,
+		data: null,
+		error: false
+	};
+	const updateImg = async() => {
+		const currentTime = new Date().getTime();
+		const startHeight = 200;
+		let DOMheight = startHeight;
+		let html = `
+			<body class="dark">
+			<div class="main">
+			<section class="status" id="status">
+				<h2>Rollout Status</h2>
+				<p id="header">This applies up to the dates listed:</p>`;
+			if (data.status.confirmed) {
+				html += `
+				<p>
+				<span style="font-size:60%;" class="badge confirmed">CONFIRMED</span><br>
+				<b>Nitro Users</b>: ${data.status.confirmed.nitro}<br>
+				<b>Non-Nitro Users</b>: ${data.status.confirmed.nonnitro}<br><br>
+				</p>`;
+				DOMheight += startHeight;
+			};
+			if (data.status.unconfirmed) {
+				html += `
+				<p>
+				<span style="font-size:60%;" class="badge unconfirmed">UNCONFIRMED</span><br>
+				<b>Nitro Users</b>: ${data.status.unconfirmed.nitro}<br>
+				<b>Non-Nitro Users</b>: ${data.status.unconfirmed.nonnitro}<br><br>
+				</p>`;
+				DOMheight += startHeight;
+			};
+			if (data.status.pending) {
+				html += `
+				<p>
+				<span style="font-size:60%;" class="badge pending">PENDING</span><br>
+				<b>Nitro Users</b>: ${data.status.pending.nitro}<br>
+				<b>Non-Nitro Users</b>: ${data.status.pending.nonnitro}<br><br>
+				</p>`;
+				DOMheight += startHeight;
+			};
+			html += `
+			<p style="font-size:30%;margin: 0 auto;margin-top:-2.5em;width:100%;">Generated: ${currentTime} | Visit ${process.env.BASE_URL}</p>
+			</section>
+			</div>
+			</body>
+		`;
 
-// 		const css = `
-// 		html, body { background: #222 !important; width: 100% !important; }
-// 		.main{
-// 			margin: auto;
-// 			padding: 20px;
-// 			border: none;
-// 			width: 100% !important;
-// 			height: fit-content;
-// 			box-shadow: none !important;
-// 			font-size: 120%;
-// 		}
-// 		`;
+		const css = `
+			html, body { background: #222 !important; width: 100% !important; }
+			.main{
+				margin: auto;
+				padding: 20px;
+				border: none;
+				width: 100% !important;
+				height: fit-content;
+				box-shadow: none !important;
+				font-size: 240% !important;
+			}
+		`;
 
-// 		const theHTML = `
-// 		<link rel="stylesheet" href="${process.env.BASE_URL}/cdn/RolloutTracker.css">
-// 		<style>${css}</style>
-// 		${html}
-// 		`;
-// 		try {
-// 			const browser = await puppeteer.launch({ headless: "new" });
-// 			const page = await browser.newPage();
+		const theHTML = `
+			<link rel="stylesheet" href="${process.env.BASE_URL}/cdn/RolloutTracker.css">
+			<style>${css}</style>
+			${html}
+		`;
 
-// 			await page.setViewport({ width: 1200, height: DOMheight });
-// 			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "domcontentloaded" });
+		statusImgCache.lastChecked = currentTime;
+		try {
+			const browser = await puppeteer.launch({ headless: "new" });
+			const page = await browser.newPage();
 
-// 			const screenshot = await page.screenshot({ type: "png" });
-// 			await browser.close();
+			await page.setViewport({ width: 1200, height: DOMheight });
+			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "domcontentloaded" });
 
-// 			res.set("Content-Type", "image/png");
-// 			res.set('Cache-Control', "max-age=60");
-// 			res.end(screenshot);
+			statusImgCache.data = await page.screenshot({ type: "png" });
+			statusImgCache.error = false;
+			await browser.close();
 
+		} catch (error) {
+			console.error(error);
+			statusImgCache.data = error;
+			statusImgCache.error = true;
+		};
+	};
 
-// 		} catch (error) {
-// 			console.error(error);
-// 			res.status(500).json(app.functions.returnError(500, error, true));
-// 		};
-// 	});
+	router.get("/image/status", async(req, res) => {
+		const timeChk = (new Date().getTime() - statusImgCache.lastChecked) / 1000;
+		console.log(timeChk)
+		if (statusImgCache.error) {
+			if (timeChk >= 60) await updateImg();
+		} else {
+			if (timeChk >= 300) await updateImg();
+		};
+
+		if (statusImgCache.error) {
+			return res.status(500).json(app.functions.returnError(500, statusImgCache.data, true));
+		};
+
+		res.set("Content-Type", "image/png");
+		res.set("Cache-Control", "max-age=60");
+		res.end(statusImgCache.data);
+		return;
+	});
 
 	router.all("*", (req, res, next) => res.status(404).json(app.functions.returnError(404, null, false)));
 

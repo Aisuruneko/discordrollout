@@ -79,16 +79,6 @@ fs.readdirSync(path.join(__dirname, "/routes/")).filter(file => path.extname(fil
 	logger.info(`Route ${route} registered!`);
 });
 
-
-// This is the cache reset thing.
-// Don't ask me how it works, but it just works(TM).
-app.cacheReset = {
-	currentTimestamp: 0,
-	timer: null
-};
-app.cacheReset.timer = setInterval(() => { app.cacheReset.currentTimestamp = new Date().getTime(); });
-app.cacheReset.currentTimestamp = new Date().getTime();
-
 app.listen(app.config.port, () => {
 	logger.info(`Listening on port ${app.config.port}!`);
 });

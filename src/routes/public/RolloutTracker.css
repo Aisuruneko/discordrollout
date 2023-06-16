@@ -455,13 +455,15 @@ body.dark .loader .spin {
 		font-size: 4.5vw;
 	}
 
-	header {
+	header,
+	#refresh {
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
 	}
 
-	header .switch {
+	header .switch,
+	#refresh #refreshButton {
 		width: 100%;
 	}
 
@@ -478,6 +480,10 @@ body.dark .loader .spin {
 
 	.alerts {
 		font-size: 80%;
+	}
+
+	#refresh {
+		margin-bottom: 10px;
 	}
 
 	footer {

@@ -8,7 +8,7 @@
 class RolloutTracker {
 	constructor() {
 		// Main
-		this.version = "v2023.06.14";
+		this.version = "v2023.06.16";
 		this.assets = {
 			data: "data/full",
 			alerts: "alerts/full"
@@ -22,7 +22,7 @@ class RolloutTracker {
 			},
 			onEnd: () => { this.refreshData(); },
 			timer: null
-		}
+		};
 	}
 
 
@@ -75,7 +75,7 @@ class RolloutTracker {
 		};
 	}
 
-	refreshData() {
+	async refreshData() {
 		clearInterval(this.refreshTimer.timer);
 		// Adds the loading thing next to the site name
 		const headerLoader = document.getElementById("header-loader");
@@ -112,7 +112,7 @@ class RolloutTracker {
 
 		// Fetch the data
 		const alertsUrl = `${this.assets.base}${this.assets.alerts}`;
-		fetch(alertsUrl)
+		await fetch(alertsUrl)
 			.then(response => {
 				if (!response.ok) throw new Error(response.status);
 				else return response.json();
@@ -182,7 +182,7 @@ class RolloutTracker {
 
 		// Fetch the data
 		const dataUrl = `${this.assets.base}${this.assets.data}`;
-		fetch(dataUrl)
+		await fetch(dataUrl)
 			.then(response => {
 				if (!response.ok) throw response;
 				else return response.json();

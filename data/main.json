@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686884495,
+		"lastUpdated": 1686895855,
 		"createdAt": 1686202839
 	},
 
@@ -344,28 +344,30 @@
 			"header": "When will I get my username?",
 			"content": [
 				"There is no official timeline. This is to only provide a overview of what is going on currently.",
-				"Confirmed as of <c-timestamp unix=\"1686163919\">...</c-timestamp>, they seem to be in two waves: one at or before 2:00 PM Eastern Time (GMT-4) and another at or before 8:00 PM Eastern Time (GMT-4)."
+				"Confirmed as of <c-timestamp unix=\"1686163919\">...</c-timestamp>, they seem to be in two waves: one at or before 2:00 PM Eastern Time (GMT-4) and another at or before 8:00 PM Eastern Time (GMT-4).",
+				"As of <c-timestamp unix=\"1686788129\">...</c-timestamp>, the waves started becoming haywire, so now it's really hard to tell."
 			]
 		},
 		{
 			"header": "I'm in the correct category and timeframe and should have the \"rollout\", but I don't?!",
 			"content": [
-				"<b>Don't be alarmed! It seems a lot of people are experiencing this issue!</b>",
-				"No one really knows the root cause of it, however here are some tips:",
+				"<b>Don't be alarmed! It seems a lot of people are experiencing this issue,</b> however no one really knows the root cause.",
+				"If you're not seeing any popup yet, try these tips:",
 				" -> Try logging out and logging back in",
 				" -> Try cold restarting Discord",
 				" -> Make sure you're up-to-date with the Discord client you're using.",
 				" -> Try another device / client",
-				" -> As the rollout seems to be gradually rolling out, you can try waiting up to 24-48 hours.",
-				"Discord is aware of the issue and their general support won't be able to help. There's not much you can do at this time otherwise..."
+				"Note that, because of the amount of users, you may not get it immediately and it may take up to 24-48 hours.",
+				"Discord is aware of the strange issue where Nitro users are classed as Non-Nitro users and their general support won't be able to help.",
+				"If all of the above has been tried, then you must wait. Sorry about that..."
 			]
 		},
 		{
 			"header": "There are users with later creation dates who have it way after the date(s) you list?!",
 			"content": [
 				"It may be possible, if one of the two conditions applies:",
-				" -> The user was apart of Rollout 0, which rolled the new system out for Discord Staff (and their personal accounts), Partners, Verified Server Owners, and some server owners with a certain revenue threshold.",
-				" -> The information provided here is somehow out of date. <i>To avoid misinformation as much as possible, it may take a bit to update this page.</i>"
+				" -> The user was apart of Rollout 0",
+				" -> The information provided here is somehow out of date. <i>See \"How often does the data / page update?\" section</i>"
 			]
 		},
 		{
@@ -376,18 +378,17 @@
 			]
 		},
 		{
-			"header": "How often does this page update?",
-			"content": "The data on the page refreshes every 5 minutes (to save bandwidth, as well). This page will be updated carefully to avoid misinformation as much as possible."
+			"header": "How often does the data / page update?",
+			"content": "About every 5 minutes. You may also manually trigger a refresh, which will reset the 5 minute counter. The data may be initially out of date as we use multiple reports as evidence, to avoid misinformation."
 		},
 		{
 			"header": "What are the times?!",
-			"content": "Unless it shows up with something like (GMT-4), it's in your local timezone."
+			"content": "To help you understand where the tracker is, 99% of this page is in your local timezone."
 		},
 		{
-			"header": "Is this official?",
+			"header": "Is this official / Source?",
 			"content": [
-				"Short answer: No, but it is as much as we have, as a community.",
-				"Long answer: No, this is not in any way, shape, or form an official tracker. The content may be inaccurate (although at its best, I try to keep it accurate!). Because it is a community effort, the data collected to present on this page varies for sources, but mainly from the Discord Admins server."
+				"Sadly, <b>this is unofficial</b> and any official information is what Discord themselves says. Note that the sources vary, but they are mainly from Discord Admins, an official Discord server."
 			]
 		},
 		{
@@ -405,11 +406,11 @@
 			"note": "1",
 			"content": [
 				"Discord will only consider you a \"Nitro User\" as long as all of the following are true:",
-				" &nbsp;&nbsp;&nbsp;-> You had Nitro on or before March 1st, 2023 AND continue to keep it until you receive the change.",
-				" &nbsp;&nbsp;&nbsp;-> You got your Nitro back within the grace period (typically around 3 days), if you had lost it.",
-				" &nbsp;&nbsp;&nbsp;-> Your Nitro is NOT Nitro Basic (Nitro Classic will be honored, if you're wondering).",
-				" &nbsp;&nbsp;&nbsp;-> You do not have a Nitro Trial, as those were in May.",
-				"<b>(CLARIFICATION NEEDED)</b> If you were gifted Nitro after the above mentioned date, you may not be considered a Nitro user."
+				" &nbsp;&nbsp;&nbsp;-> You had Nitro on or before March 1st, 2023 AND continue to keep it until you receive the change",
+				" &nbsp;&nbsp;&nbsp;-> You got your Nitro back within the grace period (typically around 3 days), if you had lost it",
+				" &nbsp;&nbsp;&nbsp;-> Your Nitro is NOT Nitro Basic (Nitro Classic will be honored, if you're wondering)",
+				" &nbsp;&nbsp;&nbsp;-> You do not have a Nitro Trial, as those were in May",
+				" &nbsp;&nbsp;&nbsp;<b>(CLARIFICATION PENDING)</b> If you were gifted Nitro after the above mentioned date, you may not be considered a Nitro user"
 			]
 		}
 	]
