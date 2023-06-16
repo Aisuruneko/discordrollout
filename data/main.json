@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686874605,
+		"lastUpdated": 1686884495,
 		"createdAt": 1686202839
 	},
 
@@ -285,7 +285,7 @@
 		},
 		{
 			"day": 9,
-			"type": "pending",
+			"type": "confirmed",
 			"content": "<i>OWNER NOTE: It's becoming impossible to predict the times and waves.</i>",
 			"updates": [
 				{
@@ -308,7 +308,30 @@
 					"wave": 3,
 					"rollouts": [
 						{
-							"1686873481": "Wave #3 begun with up to <b>August 2020</b> (Non-Nitro)."
+							"1686873481": "Wave #3 begun and ended off with up to <b>August 2020</b> (Non-Nitro)."
+						}
+					]
+				}
+			]
+		},
+		{
+			"day": 10,
+			"type": "pending",
+			"content": null,
+			"updates": [
+				{
+					"wave": 1,
+					"rollouts": [
+						{
+							"1686936600": "Wave #1 should begin around this time."
+						}
+					]
+				},
+				{
+					"wave": 2,
+					"rollouts": [
+						{
+							"1686955500": "Wave #2 should begin around this time."
 						}
 					]
 				}
@@ -370,6 +393,7 @@
 		{
 			"header": "I want to report an issue / report a update / use the API / talk to you / etc...",
 			"content": [
+				"<b>NOTE: Please do not ask me when you will get the username or any estimate of such. <i>I don't know.</i></b>",
 				"You can reach out to me via Discord at @<a href=\"%MAINTAINER_URL%\">%MAINTAINER_HANDLE%</a>.",
 				"As far as the API goes: mainly what you probably want is: <code>/api/data/status</code>, which gives, if applicable, any current confirmed, unconfirmed, and/or pending status."
 			]
