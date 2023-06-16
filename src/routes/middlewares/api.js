@@ -191,7 +191,7 @@ module.exports = (app) => {
 			const browser = await puppeteer.launch({ headless: "new" });
 			const page = await browser.newPage();
 
-			await page.setViewport({ width: 1200, height: DOMheight });
+			await page.setViewport({ width: 1200, height: DOMheight, deviceScaleFactor: 0 });
 			await page.goto(`data:text/html,${encodeURIComponent(theHTML)}`, { waitUntil: "domcontentloaded" });
 
 			statusImgCache.data = await page.screenshot({ type: "png" });
@@ -207,7 +207,6 @@ module.exports = (app) => {
 
 	router.get("/image/status", async(req, res) => {
 		const timeChk = (new Date().getTime() - statusImgCache.lastChecked) / 1000;
-		console.log(timeChk)
 		if (statusImgCache.error) {
 			if (timeChk >= 60) await updateImg();
 		} else {
