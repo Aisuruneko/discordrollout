@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1686936779,
+		"lastUpdated": 1686939151,
 		"createdAt": 1686202839
 	},
 
@@ -8,10 +8,6 @@
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
 			"nonnitro": "October 2020"
-		},
-		"pending": {
-			"nitro": "N/A",
-			"nonnitro": "November 2020"
 		}
 	},
 
