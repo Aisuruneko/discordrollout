@@ -18,6 +18,8 @@ const oneMinute = (60 * 1000);
 
 module.exports = (app) => {
 
+	const logger = new app.utils.logger(app, "API");
+
 	// Add in some data.
 	data.maintainer = {
 		handle: process.env.MAINTAINER_HANDLE,
@@ -54,6 +56,11 @@ module.exports = (app) => {
 		return returningError;
 	};
 
+	const globalBlockList = [
+		"/data/full"
+		// "/alerts/full"
+	];
+
 	router.use((req, res, next) => {
 		/* CORS */
 		const cors = req.hostname.includes(process.env.ALLOWORIGINHOST);
@@ -67,8 +74,16 @@ module.exports = (app) => {
 			return res.end();
 		};
 
-		if (!req.url.includes("/data/full")) return next();
-		else if (!req.headers["referer"] || !req.headers["referer"].includes(process.env.BASE_URL)) {
+		if (!globalBlockList.includes(req.url)) {
+			// There have been services using the API and taking full credit without
+			// linking back. This only determines WHAT is accessing what. This data
+			// IS NOT shared and only checked if the API if not in the global block
+			// list. The global block list is reserved for the site itself.
+			if (!req.url.includes("/full")) {
+				logger.info(`URL: ${req.url} | IP: ${req.ip} | Referer: ${req.headers["referer"]} | Origin: ${req.headers["origin"]}.`);
+			};
+			return next();
+		} else if (!req.headers["referer"] || !req.headers["referer"].includes(process.env.BASE_URL)) {
 			const returningError = app.functions.returnError(403, `Blocked ${req.ip} from accessing ${req.url} due to RESOURCE_BLOCKED.`, true);
 			returningError["message"] = "This endpoint is only available for the main site! Please contact the maintainer if you have any questions.";
 			returningError["maintainer"] = data.maintainer;
@@ -105,6 +120,17 @@ module.exports = (app) => {
 	});
 	router.get("/data/status", (req, res) => {
 		return res.json({ ...data.status, meta: data.meta, source: data.source});
+	});
+
+	router.get("/data/timeline/latest", (req, res) => {
+		return res.json({ ...data.timeline[data.timeline.length - 1], meta: data.meta, source: data.source});
+	});
+	router.get("/data/timeline/:timelineItem", (req, res) => {
+		const itemData = data.timeline[req.params.timelineItem] || { error: "There is no data for this item." };
+		return res.json({ ...itemData, meta: data.meta, source: data.source});
+	});
+	router.get("/data/timeline", (req, res) => {
+		return res.json({ data: data.timeline, meta: data.meta, source: data.source});
 	});
 
 
@@ -205,7 +231,7 @@ module.exports = (app) => {
 		};
 	};
 
-	router.get("/image/status", async(req, res) => {
+	router.get("/image/status-:timeStamp", async(req, res) => {
 		const timeChk = (new Date().getTime() - statusImgCache.lastChecked) / 1000;
 		if (statusImgCache.error) {
 			if (timeChk >= 60) await updateImg();

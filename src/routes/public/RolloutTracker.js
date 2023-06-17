@@ -8,7 +8,7 @@
 class RolloutTracker {
 	constructor() {
 		// Main
-		this.version = "v2023.06.16_1";
+		this.version = "v2023.06.17";
 		this.assets = {
 			data: "data/full",
 			alerts: "alerts/full"
@@ -110,7 +110,8 @@ class RolloutTracker {
 
 		const cleanElements = (temp) => Object.values(temp.children).filter(el => !["h2", "h3", "button"].includes(el.tagName.toLowerCase()) && !["header"].includes(el.id.toLowerCase())).forEach(el => el.remove());
 
-		// Fetch the data
+		// Fetch the alerts
+		if (nextCheckElement) nextCheckElement.innerHTML = "(Fetching latest alerts...)"; else lastCheckedElement.innerHTML = `Fetching latest alerts...`;
 		const alertsUrl = `${this.assets.base}${this.assets.alerts}`;
 		await fetch(alertsUrl)
 			.then(response => {
@@ -129,13 +130,17 @@ class RolloutTracker {
 					if (alertsContainer) { cleanElements(alertsContainer); };
 
 					for (let i = 0; i < data.alerts.length; i++) {
-						if (!data.alerts[i].id || !data.alerts[i].icon || !data.alerts[i].text) continue;
+						if (!data.alerts[i].id || !data.alerts[i].type || !data.alerts[i].text) continue;
 						const alertContainer = document.createElement("div");
 
 
 						const alertIconElement = document.createElement("span");
 						alertIconElement.className = "alert-icon";
-						alertIconElement.innerHTML = data.alerts[i].icon;
+						const badge = document.createElement("span");
+						badge.className = `badge ${data.alerts[i].badge}`;
+						badge.textContent = data.alerts[i].type.toUpperCase();
+						alertIconElement.appendChild(badge);
+
 						const alertTextElement = document.createElement("span");
 						alertTextElement.className = "alert-text";
 						alertTextElement.innerHTML = data.alerts[i].text;
@@ -162,7 +167,7 @@ class RolloutTracker {
 					alert("Sorry, something went wrong while loading alerts. Try refreshing?");
 				};
 
-				if (error.stack) genericError()
+				if (error.stack) genericError(error)
 				else {
 					if (typeof error.json === "function") {
 						error.json().then(errorData => {
@@ -181,6 +186,7 @@ class RolloutTracker {
 			});
 
 		// Fetch the data
+		if (nextCheckElement) nextCheckElement.innerHTML = "(Fetching latest data...)"; else lastCheckedElement.innerHTML = `Fetching latest data...`;
 		const dataUrl = `${this.assets.base}${this.assets.data}`;
 		await fetch(dataUrl)
 			.then(response => {
@@ -459,7 +465,7 @@ class RolloutTracker {
 					alert("Sorry, something went wrong while loading data. Try refreshing?");
 				};
 
-				if (error.stack) genericError()
+				if (error.stack) genericError(error)
 				else {
 					if (typeof error.json === "function") {
 						error.json().then(errorData => {

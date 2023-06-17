@@ -7,12 +7,14 @@
 	"alerts": [
 		{
 			"id": "nitro-bugs",
-			"icon": "<span class=\"badge pending\">ALERT</span>",
+			"type": "ALERT",
+			"badge": "pending",
 			"text": "There is a bug affecting some Nitro users being labeled as Non-Nitro Users and vice versa; Discord is internally aware."
 		},
 		{
 			"id": "gift-no-count",
-			"icon": "<span class=\"badge pending\">UPDATE</span>",
+			"type": "UPDATE",
+			"badge": "pending",
 			"text": "Discord Nitro gifts may NOT count (info from DStaff). Apologies..."
 		}
 	]
