@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1687196716,
+		"lastUpdated": 1687248850,
 		"createdAt": 1686202839
 	},
 
@@ -354,7 +354,7 @@
 		{
 			"day": 11,
 			"type": "pending",
-			"content": "(No rollouts were done over the weekend!) Today's Juneteenth, and we most likely won't see anything. Check tomorrow!",
+			"content": "(No rollouts over the weekend & Monday was Juneteenth.)",
 			"updates": [
 				{
 					"wave": 1,
