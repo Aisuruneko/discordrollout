@@ -1,13 +1,13 @@
 {
 	"meta": {
-		"lastUpdated": 1687248850,
+		"lastUpdated": 1687279366,
 		"createdAt": 1686202839
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "March 2021"
+			"nonnitro": "June 2021"
 		}
 	},
 
@@ -360,7 +360,7 @@
 					"wave": 1,
 					"rollouts": [
 						{
-							"1687283100": "Wave #1 should begin around this time."
+							"1687279327": "Wave #1 begun a whole hour early with up to <b>June 2021</b> (Non-Nitro)."
 						}
 					]
 				},
