@@ -1,13 +1,13 @@
 {
 	"meta": {
-		"lastUpdated": 1687379229,
+		"lastUpdated": 1687387954,
 		"createdAt": 1686202839
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "April 2022"
+			"nonnitro": "June 2022"
 		}
 	},
 
@@ -407,7 +407,7 @@
 					"wave": 2,
 					"rollouts": [
 						{
-							"1687378724": "Wave #2 begun with up to <b>April 2022</b> (Non-Nitro)."
+							"1687378724": "Wave #2 begun and ended off with up to <b>April 2022</b> (Non-Nitro)."
 						}
 					]
 				},
@@ -415,7 +415,7 @@
 					"wave": 3,
 					"rollouts": [
 						{
-							"1687383900": "Wave #3 should begin around this time."
+							"1687387769": "Wave #3 begun with up to <b>June 2022</b> (Non-Nitro)."
 						}
 					]
 				}
@@ -444,6 +444,13 @@
 				"Note that, because of the amount of users, you may not get it immediately and it may take up to 24-48 hours.",
 				"Discord is aware of the strange issue where Nitro users are classed as Non-Nitro users and their general support won't be able to help.",
 				"If all of the above has been tried, then you must wait. Sorry about that..."
+			]
+		},
+		{
+			"header": "What does the \"up to (month)\" mean?",
+			"content": [
+				"This means up to the end of that month.",
+				"For example, if the wave stopped for Non-Nitro users at March 2019, then that means everyone in that category should have it up to the end of that month."
 			]
 		},
 		{
