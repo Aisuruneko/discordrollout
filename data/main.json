@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1687406070,
+		"lastUpdated": 1687455425,
 		"createdAt": 1686202839
 	},
 
@@ -8,6 +8,10 @@
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
 			"nonnitro": "August 2022"
+		},
+		"pending": {
+			"nitro": "N/A",
+			"nonnitro": "October 2022"
 		}
 	},
 
@@ -438,7 +442,7 @@
 					"wave": 1,
 					"rollouts": [
 						{
-							"1687454700": "Wave #1 should begin around this time."
+							"1687455425": "Wave #1 may have begun with up to <b>October 2022</b> (Non-Nitro)."
 						}
 					]
 				},
