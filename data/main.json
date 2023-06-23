@@ -1,17 +1,17 @@
 {
 	"meta": {
-		"lastUpdated": 1687481158,
+		"lastUpdated": 1687483122,
 		"createdAt": 1686202839
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "January 2023"
+			"nonnitro": "February 2023"
 		},
 		"pending": {
 			"nitro": "N/A",
-			"nonnitro": "February 2023"
+			"nonnitro": "March 2023"
 		}
 	},
 
@@ -462,6 +462,9 @@
 					"rollouts": [
 						{
 							"1687479752": "Wave #3 possibly begun with up to <b>February 2023</b> (Non-Nitro)."
+						},
+						{
+							"1687483122": "Wave #3 had multiple confirmed reports of up to <b>February 2023</b> (Non-Nitro), <b>March 2023</b> (Non-Nitro) is now pending."
 						}
 					]
 				}
