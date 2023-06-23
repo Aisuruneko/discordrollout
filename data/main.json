@@ -1,16 +1,12 @@
 {
 	"meta": {
-		"lastUpdated": 1687483122,
+		"lastUpdated": 1687485800,
 		"createdAt": 1686202839
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "February 2023"
-		},
-		"pending": {
-			"nitro": "N/A",
 			"nonnitro": "March 2023"
 		}
 	},
@@ -465,6 +461,9 @@
 						},
 						{
 							"1687483122": "Wave #3 had multiple confirmed reports of up to <b>February 2023</b> (Non-Nitro), <b>March 2023</b> (Non-Nitro) is now pending."
+						},
+						{
+							"1687485800": "Wave #3 had multiple confirmed reports of up to <b>March 2023</b> (Non-Nitro). <i>The was a delay while very few users had it (gradual rollout?)</i>"
 						}
 					]
 				}
