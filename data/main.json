@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1687569506,
+		"lastUpdated": 1687810086,
 		"createdAt": 1686202839
 	},
 
@@ -498,15 +498,14 @@
 		{
 			"day": 15,
 			"type": "pending",
-			"content": "We don't expect any rollouts over the weekend.",
+			"content": [
+				"No rollouts were done over the weekend.",
+				"<b>NOTE: There is no time estimate currently, it may be suspended until July, or a slow gradual rollout.</b>"
+			],
 			"updates": [
 				{
 					"wave": 1,
-					"rollouts": [
-						{
-							"1687801500": "Wave #1 should begin around this time."
-						}
-					]
+					"rollouts": []
 				}
 			]
 		}
