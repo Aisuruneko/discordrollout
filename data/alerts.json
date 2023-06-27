@@ -1,21 +1,21 @@
 {
 	"meta": {
-		"lastUpdated": 1686793061,
+		"lastUpdated": 1687877239,
 		"createdAt": 1686290199
 	},
 
 	"alerts": [
 		{
-			"id": "nitro-bugs",
-			"type": "ALERT",
-			"badge": "pending",
-			"text": "There is a bug affecting some Nitro users being labeled as Non-Nitro Users and vice versa; Discord is internally aware."
-		},
-		{
-			"id": "gift-no-count",
+			"id": "slow-rollout",
 			"type": "UPDATE",
 			"badge": "pending",
-			"text": "Discord Nitro gifts may NOT count (info from DStaff). Apologies..."
+			"text": "We seem to be experiencing a gradual rollout as we inch closer to final day(s)."
+		},
+		{
+			"id": "blog-post",
+			"type": "BLOG",
+			"badge": "info",
+			"text": "<a href='//nekos.sh/blog/p/durt-update'>Check out the blog post</a> by the creator!"
 		}
 	]
 }
