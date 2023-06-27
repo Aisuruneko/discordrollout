@@ -1,13 +1,13 @@
 {
 	"meta": {
-		"lastUpdated": 1687821529,
+		"lastUpdated": 1687891178,
 		"createdAt": 1686202839
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "June 11th 2023"
+			"nonnitro": "June 13rd 2023"
 		}
 	},
 
@@ -508,6 +508,9 @@
 					"rollouts": [
 						{
 							"1687821529": "Wave #1 was confirmed to have a few reports to confirm it is gradual and is at <b>June 11th 2023</b> (Non-Nitro). We'll see more as the days goes on."
+						},
+						{
+							"1687891178": "Wave #1 confirmed up to <b>June 13th 2023</b> (Non-Nitro)."
 						}
 					]
 				}
