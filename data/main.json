@@ -522,7 +522,7 @@
 					"wave": 1,
 					"rollouts": [
 						{
-							"1687891178": "Wave #1 confirmed up to <b>June 13th 2023</b> (Non-Nitro)."
+							"1687891178": "Wave #1 was confirmed up to <b>June 13th 2023</b> (Non-Nitro)."
 						}
 					]
 				}
@@ -530,14 +530,14 @@
 		},
 		{
 			"day": 17,
-			"status": "pending",
+			"status": "confirmed",
 			"content": null,
 			"updates": [
 				{
 					"wave": 1,
 					"rollouts": [
 						{
-							"1687993112": "Wave #1 confirmed up to <b>June 14th 2023</b> (Non-Nitro)."
+							"1687993112": "Wave #1 was confirmed up to <b>June 14th 2023</b> (Non-Nitro)."
 						}
 					]
 				}
