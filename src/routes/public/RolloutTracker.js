@@ -8,7 +8,7 @@
 class RolloutTracker {
 	constructor() {
 		// Main
-		this.version = "v2023.06.17";
+		this.version = "v2023.06.29";
 		this.assets = {
 			data: "data/full",
 			alerts: "alerts/full"
@@ -295,6 +295,8 @@ class RolloutTracker {
 						const ulElement = document.createElement("ul");
 						ulElement.id = "timeline-list";
 
+						console.log(data.timeline.length)
+
 						for (let i = 0; i < data.timeline.length; i++) {
 							const timelineItem = data.timeline[i];
 							if (!timelineItem.type) continue;
@@ -319,7 +321,10 @@ class RolloutTracker {
 							const pElement = document.createElement("p");
 							let pElementContent = "";
 
-							if (timelineItem.content) pElementContent += timelineItem.content + "<br>";
+							if (timelineItem.content) {
+								pElementContent = (typeof timelineItem.content === "object") ? timelineItem.content.join("<br>") : timelineItem.content;
+								pElementContent += "<br>";
+							};
 
 							if (timelineItem.updates) {
 								for (let k = 0; k < timelineItem.updates.length; k++) {
