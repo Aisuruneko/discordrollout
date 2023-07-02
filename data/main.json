@@ -1,13 +1,13 @@
 {
 	"meta": {
 		"lastUpdated": 1688062385,
-		"createdAt": 1686202839
+		"createdAt": 1688281287
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "June 15th 2023"
+			"nonnitro": "June 17th 2023"
 		}
 	},
 
@@ -545,7 +545,7 @@
 		},
 		{
 			"day": 18,
-			"type": "pending",
+			"type": "confirmed",
 			"content": null,
 			"updates": [
 				{
@@ -553,6 +553,36 @@
 					"rollouts": [
 						{
 							"1688043992": "Wave #1 confirmed up to <b>June 15th 2023</b> (Non-Nitro)."
+						}
+					]
+				}
+			]
+		},
+		{
+			"day": 19,
+			"type": "confirmed",
+			"content": null,
+			"updates": [
+				{
+					"wave": 1,
+					"rollouts": [
+						{
+							"1688249364": "Wave #1 confirmed up to <b>June 16th 2023</b> (Non-Nitro)."
+						}
+					]
+				}
+			]
+		},
+		{
+			"day": 20,
+			"type": "confirmed",
+			"content": null,
+			"updates": [
+				{
+					"wave": 1,
+					"rollouts": [
+						{
+							"1688262022": "Wave #1 confirmed up to <b>June 17th 2023</b> (Non-Nitro)."
 						}
 					]
 				}
