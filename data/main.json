@@ -1,13 +1,13 @@
 {
 	"meta": {
-		"lastUpdated": 1688062385,
+		"lastUpdated": 1688408192,
 		"createdAt": 1688281287
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "June 17th 2023"
+			"nonnitro": "June 18th 2023"
 		}
 	},
 
@@ -583,6 +583,21 @@
 					"rollouts": [
 						{
 							"1688262022": "Wave #1 confirmed up to <b>June 17th 2023</b> (Non-Nitro)."
+						}
+					]
+				}
+			]
+		},
+		{
+			"day": 21,
+			"type": "pending",
+			"content": null,
+			"updates": [
+				{
+					"wave": 1,
+					"rollouts": [
+						{
+							"1688386644": "Wave #1 confirmed up to <b>June 18th 2023</b> (Non-Nitro)."
 						}
 					]
 				}
