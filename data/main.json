@@ -1,13 +1,13 @@
 {
 	"meta": {
-		"lastUpdated": 1688408192,
+		"lastUpdated": 1688596680,
 		"createdAt": 1688281287
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "June 18th 2023"
+			"nonnitro": "June 20th 2023"
 		}
 	},
 
@@ -590,7 +590,7 @@
 		},
 		{
 			"day": 21,
-			"type": "pending",
+			"type": "confirmed",
 			"content": null,
 			"updates": [
 				{
@@ -602,6 +602,30 @@
 					]
 				}
 			]
+		},
+		{
+			"day": 22,
+			"type": "confirmed",
+			"content": "(NOTE: The dates here are when it was found, not necessarily when it was rolled out.)",
+			"updates": [
+				{
+					"wave": 1,
+					"rollouts": [
+					 {
+							"1688470653": "Wave #1 confirmed up to <b>June 19th 2023</b> (Non-Nitro)."
+						},
+						{
+							"1688479328": "Wave #1 was confirmed up to <b>June 20th 2023</b> (Non-Nitro)."
+						}
+					]
+				}
+			]
+		},
+		{
+			"day": 23,
+			"type": "pending",
+			"content": null,
+			"updates": null
 		}
 	],
 
