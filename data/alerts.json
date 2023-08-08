@@ -1,21 +1,15 @@
 {
 	"meta": {
-		"lastUpdated": 1687877239,
+		"lastUpdated": 1691535233,
 		"createdAt": 1686290199
 	},
 
 	"alerts": [
 		{
-			"id": "slow-rollout",
+			"id": "done-rollout",
 			"type": "UPDATE",
-			"badge": "pending",
-			"text": "We seem to be experiencing a gradual rollout as we inch closer to final day(s)."
-		},
-		{
-			"id": "blog-post",
-			"type": "BLOG",
-			"badge": "info",
-			"text": "<a href='//nekos.sh/blog/p/durt-update'>Check out the blog post</a> by the creator!"
+			"badge": "confirmed",
+			"text": "The rollout has technically completed. This page will be archived soon. (<a href='//nekos.sh/blog/p/durt-update'>Read the blog post</a>)"
 		}
 	]
 }
