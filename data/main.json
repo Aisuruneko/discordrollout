@@ -1,13 +1,13 @@
 {
 	"meta": {
-		"lastUpdated": 1689211005,
+		"lastUpdated": 1691535233,
 		"createdAt": 1688281287
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "June 28th 2023"
+			"nonnitro": "August 8th 2023 (Completed)"
 		}
 	},
 
@@ -656,9 +656,51 @@
 		},
 		{
 			"day": 25,
-			"type": "pending",
+			"type": "confirmed",
+			"content": "(NOTE: Rollout from here matches up two weeks difference.)",
+			"updates": [
+				{
+					"wave": 1,
+					"rollouts": [
+					 {
+							"1689348376": "Wave #1 confirmed up to <b>June 30th 2023</b> (Non-Nitro)."
+						}
+					]
+				}
+			]
+		},
+		{
+		 "day": 26,
+			"type": "confirmed",
 			"content": null,
-			"updates": null
+			"updates": [
+				{
+				 "wave": 1,
+					"rollouts": [
+						{
+							"1690517880": "Rollout \"reservation system\" seems to have expired."
+						},
+					 {
+							"1690535839": "New username system begun showing up at random for new users upon registration."
+						}
+					]
+				}
+			]
+		},
+		{
+		 "day": 27,
+			"type": "confirmed",
+			"content": "FINALLY.",
+			"updates": [
+				{
+				 "wave": 1,
+					"rollouts": [
+						{
+						 "1691531040": "Rollout is officially completed. However, there is no information regarding forcing users yet."
+						}
+					]
+				}
+			]
 		}
 	],
 
@@ -668,7 +710,8 @@
 			"content": [
 				"There is no official timeline. This is to only provide a overview of what is going on currently.",
 				"Confirmed as of <c-timestamp unix=\"1686163919\">...</c-timestamp>, they seem to be in two waves: one at or before 2:00 PM Eastern Time (GMT-4) and another at or before 8:00 PM Eastern Time (GMT-4).",
-				"As of <c-timestamp unix=\"1686788129\">...</c-timestamp>, the waves started becoming haywire, so now it's really hard to tell."
+				"As of <c-timestamp unix=\"1686788129\">...</c-timestamp>, the waves started becoming haywire, so now it's really hard to tell.",
+				"As of <c-timestamp unix=\"1691531040\">...</c-timestamp>, you should have it by now."
 			]
 		},
 		{
