@@ -1,0 +1,12 @@
+# Discord Username Rollout Tracker
+
+# 1. Ignore personal things
+node_modules/
+.env
+data/blocked.json
+package-lock.json
+
+# 2. Ignore logs
+errors/
+logs/
+

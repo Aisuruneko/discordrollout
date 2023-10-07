@@ -1,0 +1,394 @@
+/*
+ * Discord Username Rollout Tracker
+ * Created by @thecodingguy
+ * https://github.com/Aisuruneko/discordrollout/
+ * (c) 2023 Netro Corporation, on behalf of @thecodingguy
+ */
+
+/* ============================================== RESET */
+body {
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: #ff69ba;
+
+}
+
+a:hover {
+	transform: color 0.5s ease;
+	color: #aa69ba;
+}
+
+/* ============================================== ALERTS */
+.alerts {
+	background-color: #aa0000;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+}
+
+.alert:not(:last-child) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.alert-icon {
+	font-size: 18px;
+	margin-right: .5em;
+}
+
+.alert-text {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* ============================================== THEME SWITCH */
+.switch {
+	display: flex;
+	align-items: center;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.switch .slider {
+	position: relative;
+	cursor: pointer;
+	width: 40px;
+	height: 24px;
+	background-color: #ccc;
+	transition: .4s;
+	border-radius: 24px;
+}
+
+.switch .slider:before {
+	position: absolute;
+	content: "";
+	height: 16px;
+	width: 16px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	transition: .4s;
+	border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+	background-color: #00ff00;
+}
+
+.switch input:focus + .slider {
+	box-shadow: 0 0 1px #00ff00;
+}
+
+.switch input:checked + .slider:before {
+	transform: translateX(16px);
+}
+
+.switch .slider.round {
+	border-radius: 24px;
+}
+
+.switch .slider.round:before {
+	border-radius: 50%;
+}
+
+.switch .switch-label {
+	margin-left: 10px;
+	color: #fff;
+}
+
+.switch .button {
+	display: none;
+}
+
+/* ============================================== MAIN */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	color: #333;
+	line-height: 1.4;
+}
+
+header {
+	background-color: #333;
+	padding: 20px;
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	justify-content: space-around;
+}
+
+h1 {
+	color: #fff;
+	font-size: 24px;
+}
+
+.main {
+	max-width: 800px;
+	margin: 40px auto;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.status {
+	text-align: center;
+}
+
+h2,h3 {
+	margin-bottom: 10px;
+}
+
+.timeline {
+	margin-top: 40px;
+}
+
+ul {
+	list-style: none;
+}
+
+.timeline #timeline-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.timeline h3 { margin: 0; }
+
+.timeline ul li {
+	position: relative;
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+
+.timeline ul li:before {
+	content: '';
+	position: absolute;
+	top: 0.6em;
+	left: 0;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #00ff00;
+}
+
+.timeline ul li div.header * {
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: 0;
+}
+
+.timeline ul li div.header *:not(:last-child) {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.5em;
+}
+
+.timeline ul li div.header {
+	margin-bottom: 0.5em;
+}
+
+
+.timeline h4 {
+	margin-bottom: 5px;
+}
+
+
+.faq {
+	margin-top: 40px;
+}
+
+.faq-item {
+	margin-bottom: 20px;
+}
+
+.faq-item h4 {
+	margin-bottom: 5px;
+}
+
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+}
+
+.status-buttons {
+	margin-top: 40px;
+}
+
+.badge {
+	display: inline-block;
+	padding: 5px 10px;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.badge.confirmed {
+	background-color: #50a957;
+	color: #fff;
+}
+
+.badge.unconfirmed {
+	background-color: #c0392b;
+	color: #fff;
+}
+
+.badge.pending {
+	background-color: #f1c40f;
+	color: #333;
+}
+
+.badge.info {
+	background-color: #3498db;
+	color: #fff;
+}
+
+.button {
+	display: inline-block;
+	padding: 5px 10px;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: none;
+	cursor: pointer;
+}
+
+.button.gradient1 {
+	background: linear-gradient(to right, #FFC371, #FF5F6D);
+}
+
+.button.gradient2 {
+	background: linear-gradient(to right, #2193b0, #6dd5ed);
+}
+
+.button.gradient3 {
+	background: linear-gradient(to right, #36D1DC, #5B86E5);
+}
+
+.timestamp {
+	display: inline-block;
+}
+
+.tooltip {
+	position: absolute;
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	padding: 5px;
+	font-size: 14px;
+	border-radius: 4px;
+	white-space: nowrap;
+}
+
+.footnote {
+	font-size: 12px;
+	color: #999;
+	top: -5px;
+	position: relative;
+}
+
+
+/* ============================================== DARK THEME */
+body.dark {
+	background-color: #333;
+	color: #fff;
+}
+
+body.dark header {
+	background-color: #222;
+}
+
+body.dark h1 {
+	color: #fff;
+}
+
+body.dark .main {
+	background-color: #222;
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .timeline li:before {
+	background-color: #00ff00;
+}
+
+body.dark .faq-item {
+	color: #ccc;
+}
+
+body.dark footer {
+	background-color: #222;
+	color: #ccc;
+}
+
+body.dark .button {
+	color: #fff;
+}
+
+body.dark .badge.confirmed {
+	background: linear-gradient(to right, #50a957, #389436);
+}
+
+body.dark .badge.unconfirmed {
+	background: linear-gradient(to right, #c0392b, #9b2d23);
+}
+
+body.dark .badge.pending {
+	background: linear-gradient(to right, #f1c40f, #d4af37);
+}
+
+/* ============================================== OTHERS */
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 4.5vw;
+	}
+
+	header {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	header .switch {
+		width: 100%;
+	}
+
+	header .switch #themeToggle,
+	header .switch .slider,
+	header .switch .switch-label {
+		display: none;
+	}
+
+	header .switch .button {
+		display: block;
+		width: 100%;
+	}
+
+	.alerts {
+		font-size: 80%;
+	}
+
+	footer {
+		font-size: 75%;
+	}
+}

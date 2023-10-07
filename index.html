@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Discord Username Rollout Tracker</title>
+		<meta property="og:title" content="Discord Username Rollout Tracker">
+		<meta property="description" content="The unofficial tracker of Discord's rollout of Pomelo!">
+		<meta property="og:description" content="The unofficial tracker of Discord's rollout of Pomelo!">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="discord, discord new usernames, discord username, rollout tracker, rollout, website, Netro, software, Netro Corporation">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="./cdn/RolloutTracker.css">
+	</head>
+	<body>
+		<!--
+			Hi there!
+			If you're reading this, you probably inspect element or console or view-source.
+			This data is archived and I don't plan on updating unless I need to.
+			
+			Thanks for the visits and to all the community members helping feed me data so I could place it!
+			You all mean a lot <3.
+			
+			~ Matthew (@thecodingguy)
+			October 7th, 2023 12:16 AM Eastern Time (GMT-4)
+			nya
+			-->
+		<!-- HEADER -->
+		<header>
+			<a href="./" style="display:flex;">
+				<h1>Discord Username Rollout Tracker</h1>
+			</a>
+			<label class="switch">
+				<input type="checkbox" id="themeToggle">
+				<span class="slider round"></span>
+				<span class="switch-label">Toggle Theme</span>
+				<span class="button gradient3">Toggle Theme</span>
+			</label>
+		</header>
+		<div class="alerts">
+			<div class="alert" id="alert-js">
+				<span class="alert-icon"><span class="badge unconfirmed">IMPORTANT</span></span>
+				<span class="alert-text">This site requires JavaScript. If this page does not load, please try reloading.</span>
+			</div>
+		</div>
+		<!-- MAIN -->
+		<div class="main">
+			<!-- INTRO (but its really the status styling. im lazy, okay?) -->
+			<section class="status" id="status">
+				<h2>Hi there.</h2>
+				<p id="header">As of October 7th, 2023, the Discord Username Rollout Tracker has been archived.</p>
+				<br>
+				<a href="//nekos.sh/blog/p/durt-update" id="viewBlogPost" class="button badge confirmed">Blog Post</a>
+				<a href="./archive" id="viewArchive" class="button badge pending">View the Archive</a>
+				<a href="//github.com/Aisuruneko/discordrollout" id="viewArchive" class="button badge unconfirmed">View the GitHub</a>
+
+				<br><br>
+				<p>
+					Archived At: 
+					<c-timestamp unix="1696653254"></c-timestamp>
+					| Data Updated: 
+					<c-timestamp unix="1691535233"></c-timestamp>
+					<br>
+				</p>
+			</section>
+		</div>
+
+		<script src="./cdn/RolloutTracker.js"></script>
+		<script type="text/javascript">
+			const alertJS = document.getElementById("alert-js");
+			if (alertJS) alertJS.remove(); // Get rid of alert-js. We currently support JS
+			
+			document.addEventListener("DOMContentLoaded", function() {
+			
+				if (RolloutTracker) {
+					window.tracker = new RolloutTracker();
+					window.tracker.init();
+				} else {
+					alert("Major issue happened. RolloutTracker not found! Try reloading?");
+				};
+			});
+		</script>
+	</body>
+</html>
