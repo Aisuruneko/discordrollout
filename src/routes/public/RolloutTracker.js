@@ -2,13 +2,13 @@
  * Discord Username Rollout Tracker
  * Created by @thecodingguy
  * https://github.com/Aisuruneko/discordrollout/
- * (c) 2023 Netro Corporation, on behalf of @thecodingguy
+ * (c) 2024 Netro Corporation, on behalf of @thecodingguy
  */
 
 class RolloutTracker {
 	constructor() {
 		// Main
-		this.version = "v2023.06.29";
+		this.version = "v2024.02.25";
 		this.assets = {
 			data: "data/full",
 			alerts: "alerts/full"

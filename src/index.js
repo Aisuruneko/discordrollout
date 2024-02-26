@@ -1,6 +1,6 @@
 /*
  * Discord Username Rollout Tracker
- * (c) 2023 Netro Corporation, on behalf of thecodingguy
+ * (c) 2024 Netro Corporation, on behalf of thecodingguy
 */
 
 (async() => {
