@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": 1691535233,
+		"lastUpdated": 1708904983,
 		"createdAt": 1686290199
 	},
 
@@ -9,7 +9,7 @@
 			"id": "done-rollout",
 			"type": "UPDATE",
 			"badge": "confirmed",
-			"text": "The rollout has technically completed. This page will be archived soon. (<a href='//nekos.sh/blog/p/durt-update'>Read the blog post</a>)"
+			"text": "We're in the final stage; once this is done, it will be archived again. (<a href='//nekos.sh/blog/p/durt-update'>Read the blog post</a>)"
 		}
 	]
 }

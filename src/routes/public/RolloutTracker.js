@@ -248,17 +248,22 @@ class RolloutTracker {
 						nitroUsersBold.textContent = "Nitro Users";
 						const nonNitroUsersBold = document.createElement("b");
 						nonNitroUsersBold.textContent = "Non-Nitro Users";
+						const remainingUsersBold = document.createElement("b");
+						remainingUsersBold.textContent = "Remaining Users";
 
 						// Append the footnote
 						nitroUsersBold.appendChild(nitroUsersFootnote);
 						nonNitroUsersBold.appendChild(nitroUsersFootnote.cloneNode(true));
 
-						// Append "Nitro Users" & "Non-Nitro Users" to main p
+						// Append the Users section to main p
 						container.appendChild(nitroUsersBold);
 						container.appendChild(document.createTextNode(`: ${dataSrc.nitro}`));
 						container.appendChild(document.createElement("br"));
 						container.appendChild(nonNitroUsersBold);
 						container.appendChild(document.createTextNode(`: ${dataSrc.nonnitro}`));
+						container.appendChild(document.createElement("br"));
+						container.appendChild(remainingUsersBold);
+						container.appendChild(document.createTextNode(`: ${dataSrc.rest}`));
 
 						// Space me lol
 						container.appendChild(document.createElement("br"));

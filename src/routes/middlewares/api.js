@@ -161,28 +161,31 @@ module.exports = (app) => {
 				<p id="header">This applies up to the dates listed:</p>`;
 			if (data.status.confirmed) {
 				html += `
-				<p>
-				<span style="font-size:60%;" class="badge confirmed">CONFIRMED</span><br>
+				<p style="font-size:60%;">
+				<span style="font-size:80%;" class="badge confirmed">CONFIRMED</span><br>
 				<b>Nitro Users</b>: ${data.status.confirmed.nitro}<br>
-				<b>Non-Nitro Users</b>: ${data.status.confirmed.nonnitro}<br><br>
+				<b>Non-Nitro Users</b>: ${data.status.confirmed.nonnitro}<br>
+				<b>Remaining Users</b>: ${data.status.confirmed.rest}<br><br>
 				</p>`;
 				DOMheight += startHeight;
 			};
 			if (data.status.unconfirmed) {
 				html += `
-				<p>
-				<span style="font-size:60%;" class="badge unconfirmed">UNCONFIRMED</span><br>
+				<p style="font-size:60%;">
+				<span style="font-size:80%;" class="badge unconfirmed">UNCONFIRMED</span><br>
 				<b>Nitro Users</b>: ${data.status.unconfirmed.nitro}<br>
-				<b>Non-Nitro Users</b>: ${data.status.unconfirmed.nonnitro}<br><br>
+				<b>Non-Nitro Users</b>: ${data.status.unconfirmed.nonnitro}<br>
+				<b>Remaining Users</b>: ${data.status.unconfirmed.rest}<br><br>
 				</p>`;
 				DOMheight += startHeight;
 			};
 			if (data.status.pending) {
 				html += `
-				<p>
-				<span style="font-size:60%;" class="badge pending">PENDING</span><br>
+				<p style="font-size:60%;">
+				<span style="font-size:80%;" class="badge pending">PENDING</span><br>
 				<b>Nitro Users</b>: ${data.status.pending.nitro}<br>
-				<b>Non-Nitro Users</b>: ${data.status.pending.nonnitro}<br><br>
+				<b>Non-Nitro Users</b>: ${data.status.pending.nonnitro}<br>
+				<b>Remaining Users</b>: ${data.status.pending.rest}<br><br>
 				</p>`;
 				DOMheight += startHeight;
 			};

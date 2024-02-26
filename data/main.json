@@ -1,13 +1,14 @@
 {
 	"meta": {
-		"lastUpdated": 1691535233,
+		"lastUpdated": 1708904983,
 		"createdAt": 1688281287
 	},
 
 	"status": {
 		"confirmed": {
 			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "August 8th 2023 (Completed)"
+			"nonnitro": "August 8th 2023 (Completed)",
+			"rest": "March 4th 2024 (Warning)"
 		}
 	},
 
@@ -701,6 +702,18 @@
 					]
 				}
 			]
+		},
+		{
+		 "day": 28,
+			"type": "confirmed",
+			"content": "[<c-timestamp unix=\"1707019164\">...</c-timestamp>] Update your username by March 4th. Yeah, it's here.",
+			"updates": []
+		},
+		{
+		 "day": 29,
+			"type": "confirmed",
+			"content": "[<c-timestamp unix=\"1707805320\">...</c-timestamp>] Discord becomes more aggressive and the popup comes up everytime you start the Discord (in majority of users).",
+			"updates": []
 		}
 	],
 
