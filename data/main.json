@@ -1,14 +1,16 @@
 {
 	"meta": {
-		"lastUpdated": 1708904983,
+		"lastUpdated": 1709603158,
 		"createdAt": 1688281287
 	},
 
 	"status": {
 		"confirmed": {
-			"nitro": "March 1st 2023 (Completed)",
-			"nonnitro": "August 8th 2023 (Completed)",
-			"rest": "March 4th 2024 (Warning)"
+			"nitro": "March 4th 2024 (Completed)",
+			"nonnitro": "August 8th 2023 (Completed)"
+		},
+		"pending": {
+			"nonnitro": "March 4th 2024 (Warning)"
 		}
 	},
 
@@ -712,8 +714,23 @@
 		{
 		 "day": 29,
 			"type": "confirmed",
-			"content": "[<c-timestamp unix=\"1707805320\">...</c-timestamp>] Discord becomes more aggressive and the popup comes up everytime you start the Discord (in majority of users).",
+			"content": "[<c-timestamp unix=\"1707805320\">...</c-timestamp>] Discord becomes more aggressive and the popup comes up everytime you start Discord (in majority of users), if not all.",
 			"updates": []
+		},
+		{
+		 "day": 29,
+			"type": "confirmed",
+			"content": "Forcing has begun.",
+			"updates": [
+				{
+				 "wave": 1,
+					"rollouts": [
+						{
+						 "1709589480": "Confirmed up to 2017 Nitro users have been forced to the new username system."
+						}
+					]
+				}
+			]
 		}
 	],
 
