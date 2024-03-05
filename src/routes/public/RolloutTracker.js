@@ -8,7 +8,7 @@
 class RolloutTracker {
 	constructor() {
 		// Main
-		this.version = "v2024.02.25";
+		this.version = "v2024.03.04";
 		this.assets = {
 			data: "data/full",
 			alerts: "alerts/full"
@@ -231,6 +231,12 @@ class RolloutTracker {
 					const createStatus = (badgeName, dataSrc) => {
 						const container = document.createDocumentFragment();
 
+						if (!dataSrc.nitro && !dataSrc.nonnitro && !data.rest) {
+							container.appendChild(document.createElement("br"));
+							return container;
+						};
+
+
 						// Create badge
 						const badge = document.createElement("span");
 						badge.className = `badge ${badgeName}`;
@@ -256,17 +262,23 @@ class RolloutTracker {
 						nonNitroUsersBold.appendChild(nitroUsersFootnote.cloneNode(true));
 
 						// Append the Users section to main p
-						container.appendChild(nitroUsersBold);
-						container.appendChild(document.createTextNode(`: ${dataSrc.nitro}`));
-						container.appendChild(document.createElement("br"));
-						container.appendChild(nonNitroUsersBold);
-						container.appendChild(document.createTextNode(`: ${dataSrc.nonnitro}`));
-						container.appendChild(document.createElement("br"));
-						container.appendChild(remainingUsersBold);
-						container.appendChild(document.createTextNode(`: ${dataSrc.rest}`));
+						if (dataSrc.nitro) {
+							container.appendChild(nitroUsersBold);
+							container.appendChild(document.createTextNode(`: ${dataSrc.nitro}`));
+							container.appendChild(document.createElement("br"));
+						};
+						if (dataSrc.nonnitro) {
+							container.appendChild(nonNitroUsersBold);
+							container.appendChild(document.createTextNode(`: ${dataSrc.nonnitro}`));
+							container.appendChild(document.createElement("br"));
+						};
+						if (dataSrc.rest) {
+							container.appendChild(remainingUsersBold);
+							container.appendChild(document.createTextNode(`: ${dataSrc.rest}`));
+							container.appendChild(document.createElement("br"));
+						};
 
 						// Space me lol
-						container.appendChild(document.createElement("br"));
 						container.appendChild(document.createElement("br"));
 
 						return container;
