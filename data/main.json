@@ -1,15 +1,16 @@
 {
 	"meta": {
-		"lastUpdated": 1709603158,
+		"lastUpdated": 1709604919,
 		"createdAt": 1688281287
 	},
 
 	"status": {
 		"confirmed": {
-			"nitro": "March 4th 2024 (Completed)",
+			"nitro": "June 2017",
 			"nonnitro": "August 8th 2023 (Completed)"
 		},
 		"pending": {
+			"nitro": "March 4th 2024 (Completed)",
 			"nonnitro": "March 4th 2024 (Warning)"
 		}
 	},
@@ -718,7 +719,7 @@
 			"updates": []
 		},
 		{
-		 "day": 29,
+		 "day": 30,
 			"type": "confirmed",
 			"content": "Forcing has begun.",
 			"updates": [
@@ -726,7 +727,7 @@
 				 "wave": 1,
 					"rollouts": [
 						{
-						 "1709589480": "Confirmed up to 2017 Nitro users have been forced to the new username system."
+						 "1709589480": "Confirmed up to June 2017 Nitro users have been forced to the new username system."
 						}
 					]
 				}
